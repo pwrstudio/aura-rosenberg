@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <template></template>
+    <headbar></headbar>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import {mapState, mapActions} from 'vuex'
-import template from './components/template'
+import headbar from './components/headbar'
 
 export default {
   name: 'app',
   components: {
-    template
+    headbar
   },
   computed: {
     ...mapState([
@@ -26,10 +27,11 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['GET_POSTS'])
+    ...mapActions(['GET_POSTS', 'GET_INFO'])
   },
   mounted () {
     this.GET_POSTS()
+    this.GET_INFO()
     this.$router.beforeEach((to, from, next) => {
       if (from.name === 'xxx') {}
       next()

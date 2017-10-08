@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import {mapState, mapActions} from 'vuex'
+import {mapState} from 'vuex'
 export default {
-  name: 'template',
+  name: 'works',
   data () {
     return {
-      msg: 'PWR'
+      msg: 'works'
     }
   },
   computed: {
@@ -24,12 +24,6 @@ export default {
         inner: this.title
       }
     }
-  },
-  methods: {
-    ...mapActions(['GET_POSTS'])
-  },
-  mounted () {
-    this.GET_POSTS()
   },
   watch: {
     '$route' (to, from) {}
