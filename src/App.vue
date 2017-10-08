@@ -1,18 +1,21 @@
 <template>
   <div id="app">
-    <headbar></headbar>
+    <!-- <headbar></headbar> -->
     <router-view></router-view>
+    <!-- <info></info> -->
   </div>
 </template>
 
 <script>
 import {mapState, mapActions} from 'vuex'
 import headbar from './components/headbar'
+import info from './components/info'
 
 export default {
   name: 'app',
   components: {
-    headbar
+    headbar,
+    info
   },
   computed: {
     ...mapState([
@@ -46,15 +49,20 @@ export default {
 <style lang='scss'>
 @import "./style/helpers/_mixins.scss";
 @import "./style/helpers/_responsive.scss";
+@import "./style/helpers/_reset.css";
 @import "./style/_variables.scss";
+@import "./style/fonts/NimbusSansNo5TOT-Medium.css";
 
 #app {
   font-family: $sans-serif-stack;
   font-size: $font-size;
   line-height: $line-height;
   color: $black;
-  background: $white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: black;
 }
 </style>

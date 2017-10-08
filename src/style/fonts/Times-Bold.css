@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "Times-Bold";
+    src: url("Times-Bold.eot");
+    src: url("Times-Bold.eot?#iefix") format("embedded-opentype"),
+         url("Times-Bold.woff2") format("woff2"),
+         url("Times-Bold.woff") format("woff"),
+         url("Times-Bold.ttf") format("ttf"),
+         url("Times-Bold.svg#Times-Bold") format("svg");
+    font-style: normal;
+    font-weight: 700;
+}

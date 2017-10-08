@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "NimbusSansNo5TOT-Medium";
+    src: url("/assets/fonts/NimbusSansNo5TOT-Medium.eot");
+    src: url("/assets/fonts/NimbusSansNo5TOT-Medium.eot?#iefix") format("embedded-opentype"),
+         url("/assets/fonts/NimbusSansNo5TOT-Medium.woff2") format("woff2"),
+         url("/assets/fonts/NimbusSansNo5TOT-Medium.woff") format("woff"),
+         url("/assets/fonts/NimbusSansNo5TOT-Medium.ttf") format("ttf"),
+         url("/assets/fonts/NimbusSansNo5TOT-Medium.svg#NimbusSansNo5TOT-Medium") format("svg");
+    font-style: normal;
+    font-weight: normal;
+}

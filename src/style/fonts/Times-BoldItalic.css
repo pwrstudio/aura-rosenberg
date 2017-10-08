@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "Times-BoldItalic";
+    src: url("Times-BoldItalic.eot");
+    src: url("Times-BoldItalic.eot?#iefix") format("embedded-opentype"),
+         url("Times-BoldItalic.woff2") format("woff2"),
+         url("Times-BoldItalic.woff") format("woff"),
+         url("Times-BoldItalic.ttf") format("ttf"),
+         url("Times-BoldItalic.svg#Times-BoldItalic") format("svg");
+    font-style: italic;
+    font-weight: 700;
+}

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>{{msg}}</h1>
+  <div class="info">
+    <p>{{msg}}</p>
   </div>
 </template>
 
@@ -35,4 +35,17 @@ export default {
 @import "../style/helpers/_mixins.scss";
 @import "../style/helpers/_responsive.scss";
 @import "../style/_variables.scss";
+
+.info {
+  z-index: 2;
+  position: fixed;
+  bottom: 0;
+  height: $line-height * 2;
+  width: 100vw;
+  background: $background-color;
+  p {
+    font-family: $sans-serif-stack;
+    font-weight: 900;
+  }
+}
 </style>

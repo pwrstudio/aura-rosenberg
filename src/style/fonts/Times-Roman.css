@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "Times-Roman";
+    src: url("/assets/fonts/Times-Roman.eot");
+    src: url("/assets/fonts/Times-Roman.eot?#iefix") format("embedded-opentype"),
+         url("/assets/fonts/Times-Roman.woff2") format("woff2"),
+         url("/assets/fonts/Times-Roman.woff") format("woff"),
+         url("/assets/fonts/Times-Roman.ttf") format("ttf"),
+         url("/assets/fonts/Times-Roman.svg#Times-Roman") format("svg");
+    font-style: normal;
+    font-weight: 300;
+}

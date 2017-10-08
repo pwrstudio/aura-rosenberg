@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "NimbusSansNo5TOT-Regular";
+    src: url("NimbusSansNo5TOT-Regular.eot");
+    src: url("NimbusSansNo5TOT-Regular.eot?#iefix") format("embedded-opentype"),
+         url("NimbusSansNo5TOT-Regular.woff2") format("woff2"),
+         url("NimbusSansNo5TOT-Regular.woff") format("woff"),
+         url("NimbusSansNo5TOT-Regular.ttf") format("ttf"),
+         url("NimbusSansNo5TOT-Regular.svg#NimbusSansNo5TOT-Regular") format("svg");
+    font-style: normal;
+    font-weight: regular;
+}
