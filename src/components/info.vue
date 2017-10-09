@@ -1,6 +1,8 @@
 <template>
   <div class="info">
-    <p>{{msg}}</p>
+    <p>
+      {{this.main.info.acf.group_exhibitions}}
+    </p>
   </div>
 </template>
 

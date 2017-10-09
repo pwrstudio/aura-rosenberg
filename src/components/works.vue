@@ -1,8 +1,10 @@
 <template>
   <div class="works">
     <div class="scroll" :style="scrollSize" v-images-loaded:on.always="resizeScroll">
-      <div v-for="item in main.posts" class="work">
-        <img :src='item.acf.images[0].image.sizes["pwr-large"]' ref="workImg"/>
+      <!-- Nested for loops takes all images in a project as equals. Could allow for grouping? Not sure about descriptions yet -->
+      <div v-for="(item, index) in main.posts" class="work">
+        <img v-if="item.acf.images.length === 1" :src='item.acf.images[0].image.sizes["pwr-large"]' ref="workImg"/>
+        <img v-else v-for="iitem in item.acf.images" :src='iitem.image.sizes["pwr-large"]' ref="workImg"/>
       </div>
     </div>
   </div>

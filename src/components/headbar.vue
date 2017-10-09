@@ -1,11 +1,6 @@
 <template>
   <div class="headbar">
-    <p>
-      <span class="asterisk">*</span>
-    </p>
-    <p>
-      <span class="title">Aura Rosenberg</span><span class="options">biography/bibliography/links</span>
-    </p>
+      <p class="asterisk" @mouseenter="onM" @mouseleave="onL"><router-link :to="{name: 'home'}">*</router-link></p><p class="text" :class="{ more: showMore }">Aura Rosenberg<span class="bump"></span><router-link :to="{name: 'info'}">biography/bibliography/links</router-link></p>
   </div>
 </template>
 
@@ -15,7 +10,16 @@ export default {
   name: 'headbar',
   data () {
     return {
-      msg: 'headbar'
+      msg: 'headbar',
+      showMore: false
+    }
+  },
+  methods: {
+    onM () {
+      this.showMore = true
+    },
+    onL () {
+      this.showMore = false
     }
   },
   computed: {
@@ -40,35 +44,54 @@ export default {
 @import "../style/helpers/_mixins.scss";
 @import "../style/helpers/_responsive.scss";
 @import "../style/_variables.scss";
-@import "../style/fonts/NimbusSansNo5TOT-Medium.css";
+@import "../style/fonts/NimbusSansNo5TOT-Regular.css";
 
 .headbar {
+  font-weight: 500;
   z-index: 1;
   position: fixed;
   height: $line-height * 2;
   width: 100vw;
-  background: $background-color;
-  p {
-    font-family: $sans-serif-stack;
-    line-height: $line-height;
-    background-color: yellow;
-    position: relative;
-    font-weight: 900;
+  background: transparent;
+  a, p {
+    width: auto;
     color: $green;
-    display: inline-block;
-    margin: 0;
-    span {
-      display: inline-block;
-      // margin-top: -20px;
-      &:after {
-        content: '';
-        display: inline-block;
-        width: 4px;
-      }
+    text-decoration: none;
+    &:active {
+      color: $green;
     }
-    .asterisk {
-      font-size: $logo-size;
-      line-height: $logo-line-height;
+    &:visited {
+      color: $green;
+    }
+  }
+  a:hover {
+    color: $black;
+  }
+  .asterisk {
+    position: relative;
+    font-size: $logo-size;
+    line-height: $logo-line-height;
+    margin-left: $line-height;
+    // leading margins
+    margin-top: 28px;
+    margin-bottom: -100px;
+    margin-left: 38px;
+  }
+  .text {
+    position: relative;
+    margin-top: 73px;
+    margin-bottom: 0px;
+    margin-left: 63px;
+    display: none;
+    &.more {
+      display: inline-block;
+    }
+  }
+  .bump {
+    &:after {
+      display: inline-block;
+      content: '';
+      width: 10px;
     }
   }
 }
