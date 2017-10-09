@@ -1,6 +1,12 @@
 <template>
   <div class="headbar" :class="{ more: main.showMore }">
-      <p class="asterisk" @click="SHOW_MORE"><router-link :to="{name: 'works'}">*</router-link></p><p class="text">Aura Rosenberg<span class="bump"></span><router-link to="about">biography/bibliography/links</router-link></p>
+      <p class="asterisk" @click="SHOW_MORE">
+        <router-link :to="{name: 'works'}">*</router-link>
+      </p>
+      <p class="text">
+        <router-link to="/">Aura Rosenberg</router-link>
+        <router-link to="about">biography/bibliography/links</router-link>
+      </p>
   </div>
 </template>
 
@@ -47,7 +53,15 @@ export default {
   width: 100vw;
   background: transparent;
   .text {
+    position: relative;
+    margin-top: 70px;
+    margin-bottom: 0px;
+    margin-left: $margin-sides * 2.1;
     display: none;
+    a {
+      display: inline-block;
+      margin-right: 3px;
+    }
   }
   &.more {
     background: white;
@@ -64,19 +78,6 @@ export default {
     margin-top: 25px;
     margin-bottom: -97px;
     margin-left: $margin-sides;
-  }
-  .text {
-    position: relative;
-    margin-top: 70px;
-    margin-bottom: 0px;
-    margin-left: $margin-sides * 2.1;
-  }
-  .bump {
-    &:after {
-      display: inline-block;
-      content: '';
-      width: $margin-sides / 2;
-    }
   }
   a, p {
     width: auto;
