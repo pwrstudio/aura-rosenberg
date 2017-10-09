@@ -1,10 +1,15 @@
 <template>
   <div class="works">
     <!-- <div class="scroll" :style="scrollSize" v-images-loaded:on.always="resizeScroll"> -->
-      <!-- Nested for loops takes all images in a project as equals. Could allow for grouping? Not sure about descriptions yet -->
       <div v-for="(item, index) in main.posts" class="work">
-        <img :src='item.acf.images[0].image.sizes["pwr-large"]' ref="workImg" :id="item.id"/>
-        <div class="text" v-if="main.showMore" v-html="item.acf.text"></div>
+        <img :src='item.acf.images[0].image.sizes["pwr-large"]' :id="item.id"/>
+        <div class="text" v-if="main.showMore">
+          <span v-html="item.title.rendered"></span>
+          <!-- Show "more images" link if the post has multiple images -->
+          <span v-if='item.acf.images.length > 1'>(<router-link to=''>more images</router-link>)</span>
+          <!-- Show "text" link if the post has a text field -->
+          <span v-if='item.acf.text'>(<router-link to=''>text</router-link>)</span>
+        </div>
       </div>
     <!-- </div> -->
   </div>
@@ -131,6 +136,9 @@ export default {
       width: 100%;
       white-space: nowrap;
       text-overflow: ellipsis;
+      a {
+        color: grey;
+      }
     }
   }
 }
