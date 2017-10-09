@@ -38,7 +38,6 @@ export default {
 @import "../style/helpers/_mixins.scss";
 @import "../style/helpers/_responsive.scss";
 @import "../style/_variables.scss";
-@import "../style/fonts/NimbusSansNo5TOT-Regular.css";
 
 .headbar {
   font-weight: 500;

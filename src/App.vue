@@ -50,8 +50,8 @@ export default {
 @import "./style/helpers/_mixins.scss";
 @import "./style/helpers/_responsive.scss";
 @import "./style/helpers/_reset.css";
+@import "./assets/fonts/nimbus/styles.css";
 @import "./style/_variables.scss";
-@import "./assets/fonts/NimbusSansNo5TOT-Medium/styles.css";
 
 #app {
   font-family: $sans-serif-stack;
