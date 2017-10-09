@@ -9,9 +9,28 @@ $logo-line-height: $line-height;
 /* Color */
 $background-color: #fff;
 $green           : rgb(0, 212, 0);
-/* Space */
 $black           : #000;
 $white           : #fff;
+/* Space */
 $border-width    : 1px;
+$margin-sides    : 24px;
 /* Breakpoints */
 $breakpoints     : ( 'small': (max-width: 900px), 'medium': (max-width: 1000px), 'large': (max-width: 1600px), 'short': (max-height: 700px), );
+
+strong {
+  color: $green;
+}
+
+a {
+  color: $green;
+  text-decoration: none;
+  &:active {
+    color: $green;
+  }
+  &:visited {
+    color: $green;
+  }
+  &:hover {
+    color: $black;
+  }
+}

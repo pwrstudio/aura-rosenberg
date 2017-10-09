@@ -51,7 +51,7 @@ export default {
 @import "./style/helpers/_responsive.scss";
 @import "./style/helpers/_reset.css";
 @import "./style/_variables.scss";
-@import "./style/fonts/NimbusSansNo5TOT-Medium.css";
+@import "./assets/fonts/NimbusSansNo5TOT-Medium/styles.css";
 
 #app {
   font-family: $sans-serif-stack;

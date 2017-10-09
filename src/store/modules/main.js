@@ -17,10 +17,14 @@ const state = {
         links: []
       }
     }
-  ]
+  ],
+  showMore: false
 }
 
 const actions = {
+  [actionTypes.SHOW_MORE] ({ commit, state }) {
+    commit(mutationTypes.SET_MORE)
+  },
   async [actionTypes.GET_POSTS] ({ commit, state }) {
     commit(mutationTypes.SET_POSTS, await api.getPosts())
   },
@@ -30,6 +34,9 @@ const actions = {
 }
 
 const mutations = {
+  [mutationTypes.SET_MORE] (state, data) {
+    state.showMore = !state.showMore
+  },
   [mutationTypes.SET_POSTS] (state, data) {
     state.posts = data
   },

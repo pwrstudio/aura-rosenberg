@@ -3,15 +3,16 @@
     <div class="scroll" :style="scrollSize" v-images-loaded:on.always="resizeScroll">
       <!-- Nested for loops takes all images in a project as equals. Could allow for grouping? Not sure about descriptions yet -->
       <div v-for="(item, index) in main.posts" class="work">
-        <img v-if="item.acf.images.length === 1" :src='item.acf.images[0].image.sizes["pwr-large"]' ref="workImg"/>
-        <img v-else v-for="iitem in item.acf.images" :src='iitem.image.sizes["pwr-large"]' ref="workImg"/>
+        <img v-if="item.acf.images.length === 1" :src='item.acf.images[0].image.sizes["pwr-large"]' ref="workImg" :id="item.id"/>
+        <img v-else v-for="iitem in item.acf.images" :src='iitem.image.sizes["pwr-large"]' ref="workImg" :id="item.id"/>
+        <p class="text" :class="{ more: main.showMore }" v-html="item.acf.text" :style="{ width: imageWidths[0] + 'px' }"></p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapState, mapActions} from 'vuex'
 import imagesLoaded from 'vue-images-loaded'
 
 export default {
@@ -26,10 +27,12 @@ export default {
         // Initial width
         width: '0px'
       },
-      windowWidth: window.innerWidth
+      windowWidth: window.innerWidth,
+      imageWidths: []
     }
   },
   methods: {
+    ...mapActions(['SHOW_MORE']),
     resizeScroll () {
       console.log('na!' + this.windowWidth)
       // sets the CSS value to computed property
@@ -43,9 +46,10 @@ export default {
     scrollWidth () {
       // returns total width of all images added.
       // The initial sum value of 3 is used for some issues with the last image falling off. Not ideal (yet)
-      console.log('computed')
       return this.$refs.workImg.reduce((sum, img) => {
-        return sum + Math.ceil(img.width)
+        let imgW = Math.ceil(img.width)
+        console.log(this.imageWidths)
+        return sum + imgW
       }, 3)
     }
   },
@@ -83,14 +87,27 @@ export default {
   overflow-x: scroll;
   overflow-y: hidden;
   .scroll {
-    width: 9000px;
-    // overflow-x: hidden;
+    width: 0;
   }
   .work {
     display: inline-block;
     img {
       height: 100vh;
       width: auto;
+    }
+    .text {
+      position: absolute;
+      display: none;
+      bottom: 0;
+      height: $line-height * 2;
+      padding: 2px 0 0 $margin-sides;
+      background: $background-color;
+      z-index: 3;
+      color: $green;
+      width: 100%;
+      &.more {
+        display: block;
+      }
     }
   }
 }

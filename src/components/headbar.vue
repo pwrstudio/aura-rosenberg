@@ -1,26 +1,20 @@
 <template>
-  <div class="headbar">
-      <p class="asterisk" @mouseenter="onM" @mouseleave="onL"><router-link :to="{name: 'home'}">*</router-link></p><p class="text" :class="{ more: showMore }">Aura Rosenberg<span class="bump"></span><router-link :to="{name: 'info'}">biography/bibliography/links</router-link></p>
+  <div class="headbar" :class="{ more: main.showMore }">
+      <p class="asterisk" @click="SHOW_MORE"><router-link :to="{name: 'works'}">*</router-link></p><p class="text">Aura Rosenberg<span class="bump"></span><router-link to="about">biography/bibliography/links</router-link></p>
   </div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapState, mapActions} from 'vuex'
 export default {
   name: 'headbar',
   data () {
     return {
-      msg: 'headbar',
-      showMore: false
+      msg: 'headbar'
     }
   },
   methods: {
-    onM () {
-      this.showMore = true
-    },
-    onL () {
-      this.showMore = false
-    }
+    ...mapActions(['SHOW_MORE'])
   },
   computed: {
     ...mapState([
@@ -48,11 +42,43 @@ export default {
 
 .headbar {
   font-weight: 500;
-  z-index: 1;
+  z-index: 9;
   position: fixed;
   height: $line-height * 2;
   width: 100vw;
   background: transparent;
+  .text {
+    display: none;
+  }
+  &.more {
+    background: white;
+    .text {
+      display: inline-block;
+    }
+  }
+  .asterisk {
+    position: relative;
+    font-size: $logo-size;
+    line-height: $logo-line-height;
+    margin-left: $line-height;
+    // leading margins
+    margin-top: 25px;
+    margin-bottom: -97px;
+    margin-left: $margin-sides;
+  }
+  .text {
+    position: relative;
+    margin-top: 70px;
+    margin-bottom: 0px;
+    margin-left: $margin-sides * 2.1;
+  }
+  .bump {
+    &:after {
+      display: inline-block;
+      content: '';
+      width: $margin-sides / 2;
+    }
+  }
   a, p {
     width: auto;
     color: $green;
@@ -66,33 +92,6 @@ export default {
   }
   a:hover {
     color: $black;
-  }
-  .asterisk {
-    position: relative;
-    font-size: $logo-size;
-    line-height: $logo-line-height;
-    margin-left: $line-height;
-    // leading margins
-    margin-top: 28px;
-    margin-bottom: -100px;
-    margin-left: 38px;
-  }
-  .text {
-    position: relative;
-    margin-top: 73px;
-    margin-bottom: 0px;
-    margin-left: 63px;
-    display: none;
-    &.more {
-      display: inline-block;
-    }
-  }
-  .bump {
-    &:after {
-      display: inline-block;
-      content: '';
-      width: 10px;
-    }
   }
 }
 </style>

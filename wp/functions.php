@@ -16,6 +16,13 @@ add_filter('query_vars', function ($vars) {
 // -------
 // -------
 // -------
+// REMOVE AUTO HTML TAGS IN TEXT
+remove_filter('the_content', 'wpautop', 10);
+remove_filter('the_excerpt', 'wpautop', 10);
+
+// -------
+// -------
+// -------
 // CUSTOM IMAGE SIZES
 add_action('after_setup_theme', 'image_size_setup');
 function image_size_setup()
