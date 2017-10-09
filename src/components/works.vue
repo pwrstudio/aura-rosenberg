@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import {mapState, mapActions} from 'vuex'
+import {mapState} from 'vuex'
 import imagesLoaded from 'vue-images-loaded'
 
 export default {
@@ -32,7 +32,6 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['SHOW_MORE']),
     resizeScroll () {
       console.log('na!' + this.windowWidth)
       // sets the CSS value to computed property

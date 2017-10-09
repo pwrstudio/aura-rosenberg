@@ -2,20 +2,17 @@
   <div id="app">
     <headbar></headbar>
     <router-view></router-view>
-    <!-- <info></info> -->
   </div>
 </template>
 
 <script>
 import {mapState, mapActions} from 'vuex'
 import headbar from './components/headbar'
-import info from './components/info'
 
 export default {
   name: 'app',
   components: {
-    headbar,
-    info
+    headbar
   },
   computed: {
     ...mapState([
@@ -35,10 +32,6 @@ export default {
   mounted () {
     this.GET_POSTS()
     this.GET_INFO()
-    this.$router.beforeEach((to, from, next) => {
-      if (from.name === 'xxx') {}
-      next()
-    })
   },
   watch: {
     '$route' (to, from) {}
@@ -63,6 +56,6 @@ export default {
 }
 
 body {
-  background: black;
+  background: $white;
 }
 </style>
