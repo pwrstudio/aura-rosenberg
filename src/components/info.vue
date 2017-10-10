@@ -74,9 +74,6 @@ export default {
 @import "../style/_variables.scss";
 
 .info {
-  span.s1 {
-    color: red !important;
-  }
   z-index: 2;
   position: fixed;
   bottom: 0;

@@ -137,7 +137,7 @@ export default {
       white-space: nowrap;
       text-overflow: ellipsis;
       a {
-        color: grey;
+        color: $grey;
       }
     }
   }
