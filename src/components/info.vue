@@ -89,15 +89,11 @@ export default {
   width: 100vw;
   height: 100vh;
   .col {
-    height: 100vh;
+    // height: 100vh;
     padding-top: $margin-sides * 3;
     padding-left: $margin-sides * 2;
     // Hide scroll stuff
-    position: absolute;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    width: calc(33.33vw + #{$scroll-bar});
-    padding-right: $scroll-bar;
+    @include hide-scroll-inner(33.33vw, 100vh, hor);
     .publications, .ongoing, .links {
       table-layout: auto;
       margin: 0 0 $line-height * 2 0;

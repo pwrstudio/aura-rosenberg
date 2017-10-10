@@ -55,6 +55,40 @@
   }
   -ms-overflow-style: none;
 }
+
+@mixin hide-scroll-outer($width, $height, $direction) {
+  position: relative;
+  @if $direction == "hor" {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: $width;
+    height: $height;
+  }
+  @else if $direction == "vert" {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    height: $height;
+    width: $width;
+  }
+}
+
+@mixin hide-scroll-inner($width, $height, $direction) {
+  position: absolute;
+  @if $direction == "hor" {
+    width: calc(#{$width} + 16px);
+    height: $height;
+    padding-right: 16px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  @else if $direction == "vert" {
+    height: calc(#{$height} + 16px);
+    width: $width;
+    padding-bottom: 16px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+  }
+}
 ///
 /// Credit: thoughtbot - http://robots.thoughtbot.com/sasss-content-directive
 ///

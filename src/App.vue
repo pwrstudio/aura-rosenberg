@@ -61,21 +61,16 @@ body {
 }
 
 .hide-scroll {
-  // Add elements that need hiding here
+  // register elements to hide here
+  // then apply the inner mixin to the el itself
+  // y is hide horizontal scroll bar, x is hide vertical scroll bar
   position: relative;
-  @include hide-scroll;
   &.main {
-    // direction to be hidden
-    overflow-y: hidden;
-    // add scroll-bar size on container
-    height: calc(100vh + #{$scroll-bar});
-    width: calc(100vw + #{$scroll-bar});
+    @include hide-scroll-outer(100vw, 100vh, vert);
   }
   &.column {
     float: left;
-    overflow-x: hidden;
-    width: 33.33vw;
-    height: 100vh;
+    @include hide-scroll-outer(33.33vw, 100vh, hor);
   }
 }
 
@@ -84,13 +79,7 @@ body {
   display: flex;
   width: 100vw;
   // Hide scroll stuff
-  overflow-y: hidden;
-  overflow-x: scroll;
-  position: absolute;
-  // Add height and move to the side
-  height: calc(100vh + #{$scroll-bar});
-  padding-bottom: $scroll-bar;
-  padding-right: $scroll-bar;
+  @include hide-scroll-inner(100vw, 100vh, vert);
   .work {
     display: inline-block;
     position: relative;
