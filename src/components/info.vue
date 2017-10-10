@@ -88,12 +88,22 @@ export default {
   background: $background-color;
   width: 100vw;
   height: 100vh;
+  @include screen-size('small') {
+    overflow-y: scroll;
+  }
   .col {
     // height: 100vh;
     padding-top: $margin-sides * 3;
     padding-left: $margin-sides * 2;
     // Hide scroll stuff
     @include hide-scroll-inner(33.33vw, 100vh, hor);
+    @include screen-size('small') {
+      position: static;
+      width: 100%;
+      height: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
     .publications, .ongoing, .links {
       table-layout: auto;
       margin: 0 0 $line-height * 2 0;
@@ -127,6 +137,13 @@ export default {
         }
       }
     }
+  }
+}
+
+.column {
+  @include screen-size('small') {
+    width: 100vw;
+    height: auto;
   }
 }
 </style>
