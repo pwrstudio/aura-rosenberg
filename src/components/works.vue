@@ -1,17 +1,18 @@
 <template>
   <div class="works">
-    <!-- <div class="scroll" :style="scrollSize" v-images-loaded:on.always="resizeScroll"> -->
-      <div v-for="(item, index) in main.posts" class="work">
-        <img :src='item.acf.images[0].image.sizes["pwr-large"]' :id="item.id"/>
-        <div class="text" v-if="main.showMore">
-          <span v-html="item.title.rendered"></span>
-          <!-- Show "more images" link if the post has multiple images -->
-          <span v-if='item.acf.images.length > 1'>(<router-link :to='item.slug'>more images</router-link>)</span>
-          <!-- Show "text" link if the post has a text field -->
-          <span v-if='item.acf.text'>(<router-link to=''>text</router-link>)</span>
-        </div>
+    <div v-for="(item, index) in main.posts" class="work">
+      <img :src='item.acf.images[0].image.sizes["pwr-large"]' :id="item.id"/>
+      <div class="text" v-if="main.showMore">
+        <span v-html="item.title.rendered"></span>
+        <!-- Show "more images" link if the post has multiple images -->
+        <span v-if='item.acf.images.length > 1'>(<router-link :to='item.slug'>more images</router-link>)</span>
+        <!-- Show "text" link if the post has a text field -->
+        <span v-if='item.acf.text'>(<span @click='toggleTextbox(item.acf.text)' class='pseudo-link'>text</span>)</span>
       </div>
-    <!-- </div> -->
+    </div>
+    <div @click='toggleTextbox("")' v-if='textboxActive' id='textbox'>
+      <div v-html='textContent'></div>
+    </div>
   </div>
 </template>
 
@@ -20,13 +21,22 @@ import {mapState} from 'vuex'
 
 export default {
   name: 'works',
-  methods: {},
+  data () {
+    return {
+      textContent: 'jsjsjsjs',
+      textboxActive: false
+    }
+  },
+  methods: {
+    toggleTextbox (text) {
+      this.textContent = text
+      this.textboxActive = !this.textboxActive
+    }
+  },
   computed: {
     ...mapState([
       'main'
     ])
-  },
-  mounted: function () {
   },
   head: {
     title () {
@@ -43,69 +53,31 @@ export default {
 @import "../style/helpers/_responsive.scss";
 @import "../style/_variables.scss";
 
-// .works {
-//   z-index: 0;
-//   position: fixed;
-//   width: 100vw;
-//   height: 100vh;
-//   overflow-x: scroll;
-//   overflow-y: hidden;
-//   .scroll {
-//     width: 0;
-//   }
-//   .work {
-//     display: inline-block;
-//     img {
-//       height: 100vh;
-//       width: auto;
-//     }
-//     .text {
-//       position: absolute;
-//       bottom: 0;
-//       height: $line-height * 2;
-//       line-height: $line-height * 2;
-//       padding: 2px 0 0 $margin-sides;
-//       background: $background-color;
-//       z-index: 3;
-//       color: $green;
-//       width: 100%;
-//       white-space: nowrap;
-//       text-overflow: ellipsis;
-//     }
-//   }
-// }
-
-.works {
-  z-index: 0;
-  // position: fixed;
-  // width: 100vw;
-  display: flex;
+#textbox {
+  width: 100vw;
   height: 100vh;
-  // overflow-x: scroll;
-  overflow-y: hidden;
-  .work {
-    display: inline-block;
-    position: relative;
-    img {
-      height: 100vh;
-    }
-    .text {
-      position: absolute;
-      bottom: 0;
-      height: $line-height * 2;
-      line-height: $line-height * 2;
-      padding: 2px 0 0 $margin-sides;
-      background: $background-color;
-      z-index: 3;
-      color: $green;
-      width: 100%;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      a {
-        color: $grey;
-      }
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  cursor: pointer;
+  div {
+    @include hide-scroll;
+    padding: 20px;
+    background: $white;
+    min-width: 400px;
+    min-height: 200px;
+    max-height: 80vh;
+    max-width: 80vw;
   }
+}
+
+.pseudo-link {
+  color: $grey;
+  cursor: pointer;
 }
 
 </style>

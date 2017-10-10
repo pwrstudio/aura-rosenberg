@@ -58,4 +58,34 @@ export default {
 body {
   background: $white;
 }
+
+.works {
+  z-index: 0;
+  display: flex;
+  height: 100vh;
+  overflow-y: hidden;
+  .work {
+    display: inline-block;
+    position: relative;
+    img {
+      height: 100vh;
+    }
+    .text {
+      position: absolute;
+      bottom: 0;
+      height: $line-height * 2;
+      line-height: $line-height * 2;
+      padding: 2px 0 0 $margin-sides;
+      background: $background-color;
+      z-index: 3;
+      color: $green;
+      width: 100%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      a {
+        color: $grey;
+      }
+    }
+  }
+}
 </style>
