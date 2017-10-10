@@ -57,13 +57,36 @@ export default {
 
 body {
   background: $white;
+  overflow: hidden;
+}
+
+.hide-scroll {
+  position: relative;
+  @include hide-scroll;
+  &.main {
+    overflow-y: hidden;
+    height: calc(100vh + #{$scroll-bar});
+    width: calc(100vw + #{$scroll-bar});
+  }
+  &.column {
+    float: left;
+    overflow-x: hidden;
+    width: 33.33vw;
+    height: 100vh;
+  }
 }
 
 .works {
   z-index: 0;
   display: flex;
-  height: 100vh;
+  width: 100vw;
+  // Hide scroll stuff
   overflow-y: hidden;
+  overflow-x: scroll;
+  height: calc(100vh + #{$scroll-bar});
+  position: absolute;
+  padding-bottom: $scroll-bar;
+  padding-right: $scroll-bar;
   .work {
     display: inline-block;
     position: relative;

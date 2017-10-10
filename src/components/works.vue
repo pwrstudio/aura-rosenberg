@@ -1,18 +1,23 @@
 <template>
-  <div class="works">
-    <div v-for="(item, index) in main.posts" class="work">
-      <img :src='item.acf.images[0].image.sizes["pwr-large"]' :id="item.id"/>
-      <div class="text" v-if="main.showMore">
-        <span v-html="item.title.rendered"></span>
-        <!-- Show "more images" link if the post has multiple images -->
-        <span v-if='item.acf.images.length > 1'>(<router-link :to='item.slug'>more images</router-link>)</span>
-        <!-- Show "text" link if the post has a text field -->
-        <span v-if='item.acf.text'>(<span @click='toggleTextbox(item.acf.text)' class='pseudo-link'>text</span>)</span>
+  <div class="hide-scroll main">
+    <!-- No content in outer -->
+    <div class="works">
+      <div v-for="(item, index) in main.posts" class="work">
+        <img :src='item.acf.images[0].image.sizes["pwr-large"]' :id="item.id"/>
+        <div class="text" v-if="main.showMore">
+          <span v-html="item.title.rendered"></span>
+          <!-- Show "more images" link if the post has multiple images -->
+          <span v-if='item.acf.images.length > 1'>(<router-link :to='item.slug'>more images</router-link>)</span>
+          <!-- Show "text" link if the post has a text field -->
+          <span v-if='item.acf.text'>(<span @click='toggleTextbox(item.acf.text)' class='pseudo-link'>text</span>)</span>
+        </div>
+      </div>
+      <div @click='toggleTextbox("")' v-if='textboxActive' id='textbox'>
+        <div v-html='textContent'></div>
       </div>
     </div>
-    <div @click='toggleTextbox("")' v-if='textboxActive' id='textbox'>
-      <div v-html='textContent'></div>
-    </div>
+
+    <!--  -->
   </div>
 </template>
 
