@@ -6,7 +6,7 @@
         <div class="text" v-if="main.showMore">
           <span v-html="item.title.rendered"></span>
           <!-- Show "more images" link if the post has multiple images -->
-          <span v-if='item.acf.images.length > 1'>(<router-link to=''>more images</router-link>)</span>
+          <span v-if='item.acf.images.length > 1'>(<router-link :to='item.slug'>more images</router-link>)</span>
           <!-- Show "text" link if the post has a text field -->
           <span v-if='item.acf.text'>(<router-link to=''>text</router-link>)</span>
         </div>
@@ -17,51 +17,16 @@
 
 <script>
 import {mapState} from 'vuex'
-// import imagesLoaded from 'vue-images-loaded'
 
 export default {
   name: 'works',
-  // directives: {
-  //   imagesLoaded
-  // },
-  // data () {
-  //   return {
-  //     scrollSize: {
-  //       // Initial width
-  //       width: '0px'
-  //     },
-  //     windowWidth: window.innerWidth,
-  //     imageWidths: []
-  //   }
-  // },
-  methods: {
-    // resizeScroll () {
-    //   console.log('na!' + this.windowWidth)
-    //   // sets the CSS value to computed property
-    //   this.scrollSize.width = this.scrollWidth + 'px'
-    // }
-  },
+  methods: {},
   computed: {
     ...mapState([
       'main'
     ])
-    // scrollWidth () {
-    //   // returns total width of all images added.
-    //   // The initial sum value of 3 is used for some issues with the last image falling off. Not ideal (yet)
-    //   return this.$refs.workImg.reduce((sum, img) => {
-    //     let imgW = Math.ceil(img.width)
-    //     console.log(this.imageWidths)
-    //     return sum + imgW
-    //   }, 3)
-    // }
   },
   mounted: function () {
-    // this.$nextTick(function () {
-    // Code that will run only after the
-    // entire view has been rendered
-    // Not working yet
-    //   window.addEventListener('resize', this.resizeScroll)
-    // })
   },
   head: {
     title () {

@@ -1,12 +1,10 @@
 <template>
   <div class="headbar" :class="{ more: main.showMore }">
-      <p class="asterisk" @click="SHOW_MORE">
-        <router-link :to="{name: 'works'}">*</router-link>
-      </p>
-      <p class="text">
-        <router-link to="/">Aura Rosenberg</router-link>
-        <router-link to="about">biography/bibliography/links</router-link>
-      </p>
+    <p class="asterisk" @click="SHOW_MORE">*</p>
+    <p class="text">
+      <router-link to="/">Aura Rosenberg</router-link>
+      <router-link to="about">biography/bibliography/links</router-link>
+    </p>
   </div>
 </template>
 
@@ -52,6 +50,7 @@ export default {
   height: $line-height * 2;
   width: 100vw;
   background: transparent;
+  user-select: none;
   .text {
     position: relative;
     margin-top: 70px;
@@ -78,6 +77,10 @@ export default {
     margin-top: 25px;
     margin-bottom: -97px;
     margin-left: $margin-sides;
+    &:hover {
+      color: $black;
+      cursor: pointer;
+    }
   }
   a, p {
     width: auto;

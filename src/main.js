@@ -6,28 +6,15 @@ import App from './App'
 import store from './store'
 import info from './components/info'
 import works from './components/works'
-
-// import Raven from 'raven-js'
-// import RavenVue from 'raven-js/plugins/vue'
-
-// Raven
-//     .config('https://---0@sentry.io/---')
-//     .addPlugin(RavenVue, Vue)
-//     .install()
+import single from './components/single'
 
 Vue.use(VueRouter)
 
 // Vue.use(VueHead)
 
 const router = new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   routes: [
-    // {
-    //   path: '/:slug',
-    //   path: '/:slug',
-    //   name: 'text',
-    //   component: overview
-    // },
     {
       path: '/about',
       name: 'about',
@@ -37,11 +24,14 @@ const router = new VueRouter({
       path: '/',
       name: 'works',
       component: works
+    },
+    {
+      path: '/:slug',
+      name: 'single',
+      component: single
     }
   ]
 })
-
-// ga(router, 'UA-XXXXX')
 
 /* eslint-disable no-new */
 new Vue({
