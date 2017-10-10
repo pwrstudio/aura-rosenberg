@@ -61,10 +61,13 @@ body {
 }
 
 .hide-scroll {
+  // Add elements that need hiding here
   position: relative;
   @include hide-scroll;
   &.main {
+    // direction to be hidden
     overflow-y: hidden;
+    // add scroll-bar size on container
     height: calc(100vh + #{$scroll-bar});
     width: calc(100vw + #{$scroll-bar});
   }
@@ -83,8 +86,9 @@ body {
   // Hide scroll stuff
   overflow-y: hidden;
   overflow-x: scroll;
-  height: calc(100vh + #{$scroll-bar});
   position: absolute;
+  // Add height and move to the side
+  height: calc(100vh + #{$scroll-bar});
   padding-bottom: $scroll-bar;
   padding-right: $scroll-bar;
   .work {
