@@ -78,7 +78,6 @@ body {
   z-index: 0;
   display: flex;
   width: 100vw;
-  // Hide scroll stuff
   @include hide-scroll-inner(100vw, 100vh, vert);
   .work {
     display: inline-block;
@@ -94,12 +93,15 @@ body {
       padding: 2px 0 0 $margin-sides;
       background: $background-color;
       z-index: 3;
-      color: $green;
+      color: $black;
       width: 100%;
       white-space: nowrap;
       text-overflow: ellipsis;
       a {
-        color: $grey;
+        color: $green;
+        &:hover {
+          color: $black;
+        }
       }
     }
   }

@@ -81,8 +81,11 @@ export default {
 }
 
 .pseudo-link {
-  color: $grey;
+  color: $green;
   cursor: pointer;
+  &:hover {
+    color: $black;
+  }
 }
 
 </style>
