@@ -2,7 +2,7 @@
   <div class="hide-scroll main">
     <div class="works" v-if='singleWork[0]'>
       <div v-for="item in singleWork[0].acf.images" class="work">
-        <img :src='item.image.sizes["pwr-large"]'>
+        <img v-if='item.image.sizes' :src='item.image.sizes["pwr-large"]'>
       </div>
     </div>
   </div>
