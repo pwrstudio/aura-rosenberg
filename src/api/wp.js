@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
 
-const API_ROOT = 'http://52.29.184.102/wp-json/wp/v2/'
+const API_ROOT = 'http://cms.aurarosenberg.com/wp-json/wp/v2/'
 const INFO_PAGE_ID = 6
 
 Vue.use(VueResource)
