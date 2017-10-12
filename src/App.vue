@@ -89,8 +89,8 @@ body {
       position: absolute;
       bottom: 0;
       height: $line-height * 2;
-      line-height: $line-height * 2;
-      padding: 2px 0 0 $margin-sides;
+      line-height: $line-height;
+      padding: 6px 0 0 $margin-sides;
       background: $background-color;
       z-index: 3;
       color: $black;

@@ -94,9 +94,14 @@ export default {
   .col {
     // height: 100vh;
     padding-top: $margin-sides * 3;
-    padding-left: $margin-sides * 2;
+    padding-left: 30px;
     // Hide scroll stuff
     @include hide-scroll-inner(33.33vw, 100vh, hor);
+    // overwrite padding from mixin
+    padding-right: calc(16px + 4px);
+    &.right {
+      padding-right: calc(16px + 30px);
+    }
     @include screen-size('small') {
       position: static;
       width: 100%;
@@ -107,6 +112,9 @@ export default {
     .publications, .ongoing, .links {
       table-layout: auto;
       margin: 0 0 $line-height * 2 0;
+      img {
+        width: 40%;
+      }
     }
     .list {
       table-layout: fixed;
