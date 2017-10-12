@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import 'babel-polyfill'
 import VueRouter from 'vue-router'
-// import VueHead from 'vue-head'
 import App from './App'
 import store from './store'
 import info from './components/info'
@@ -9,8 +8,6 @@ import works from './components/works'
 import single from './components/single'
 
 Vue.use(VueRouter)
-
-// Vue.use(VueHead)
 
 const router = new VueRouter({
   // mode: 'history',
