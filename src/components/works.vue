@@ -3,7 +3,7 @@
     <!-- No content in outer -->
     <div class="works">
       <div v-for="(item, index) in main.posts" class="work">
-        <img :src='item.acf.images[0].image.sizes["pwr-large"]' :id="item.id"/>
+        <img v-if='item.acf.images.length > 0 && item.acf.images[0].image.sizes' :src='item.acf.images[0].image.sizes["pwr-medium"]' :id="item.id"/>
         <div class="text" v-if="main.showMore">
           <span v-html="item.title.rendered"></span>
           <!-- Show "more images" link if the post has multiple images -->
@@ -18,8 +18,6 @@
         </div>
       </div>
     </div>
-
-    <!--  -->
   </div>
 </template>
 
@@ -30,7 +28,7 @@ export default {
   name: 'works',
   data () {
     return {
-      textContent: 'jsjsjsjs',
+      textContent: '',
       textboxActive: false
     }
   },
@@ -44,13 +42,6 @@ export default {
     ...mapState([
       'main'
     ])
-  },
-  head: {
-    title () {
-      return {
-        inner: this.title
-      }
-    }
   }
 }
 </script>

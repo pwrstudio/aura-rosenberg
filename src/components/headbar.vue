@@ -1,5 +1,5 @@
 <template>
-  <div class="headbar" :class="{ more: main.showMore }">
+  <div class="headbar" :class="{more: main.showMore}">
     <p class="asterisk" @click="SHOW_MORE">*</p>
     <div class="bar">
       <router-link to="/" id="aura">Aura Rosenberg</router-link>
@@ -12,11 +12,6 @@
 import {mapState, mapActions} from 'vuex'
 export default {
   name: 'headbar',
-  data () {
-    return {
-      msg: 'headbar'
-    }
-  },
   methods: {
     ...mapActions(['SHOW_MORE'])
   },
@@ -24,16 +19,6 @@ export default {
     ...mapState([
       'main'
     ])
-  },
-  head: {
-    title () {
-      return {
-        inner: this.title
-      }
-    }
-  },
-  watch: {
-    '$route' (to, from) {}
   }
 }
 </script>

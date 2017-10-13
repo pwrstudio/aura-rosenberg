@@ -19,22 +19,12 @@ export default {
       'main'
     ])
   },
-  head: {
-    title () {
-      return {
-        inner: this.title
-      }
-    }
-  },
   methods: {
     ...mapActions(['GET_POSTS', 'GET_INFO'])
   },
   mounted () {
     this.GET_POSTS()
     this.GET_INFO()
-  },
-  watch: {
-    '$route' (to, from) {}
   }
 }
 </script>
