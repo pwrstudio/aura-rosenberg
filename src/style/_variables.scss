@@ -4,7 +4,12 @@ $serif-stack     : 'Times-Roman', times, georgia, serif;
 $sans-serif-stack: 'NimbusSansNo5TOT-Medium', helvetica, arial, sans-serif;
 $font-size       : 16px;
 $line-height     : 21px;
-$logo-size       : 34px;
+$font-size-mob-s : 12px;
+$line-height-mob-s: 14px;
+$font-size-mob   : 17px;
+$line-height-mob : 24px;
+$logo-size       : 36px;
+$logo-size-mob   : 38px;
 $logo-line-height: $line-height;
 /* Color */
 $background-color: #fff;
@@ -17,7 +22,7 @@ $border-width    : 1px;
 $margin-sides    : 20px;
 $scroll-bar      : 16px;
 /* Breakpoints */
-$breakpoints     : ( 'small': (max-width: 900px), 'medium': (max-width: 1000px), 'large': (max-width: 1600px), 'short': (max-height: 700px), );
+$breakpoints     : ( 'small': (max-width: 639px), 'medium': (max-width: 1000px), 'large': (max-width: 1600px), 'short': (max-height: 700px), );
 
 strong {
   color: $green;

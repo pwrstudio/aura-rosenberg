@@ -97,6 +97,10 @@ body {
       width: 100%;
       white-space: nowrap;
       text-overflow: ellipsis;
+      @include screen-size('small') {
+        font-size: $font-size-mob-s;
+        line-height: $line-height-mob-s;
+      }
       a {
         color: $green;
         &:hover {

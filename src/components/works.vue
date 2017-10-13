@@ -12,8 +12,10 @@
           <span v-if='item.acf.text'>(<span @click='toggleTextbox(item.acf.text)' class='pseudo-link'>text</span>)</span>
         </div>
       </div>
-      <div @click='toggleTextbox("")' v-if='textboxActive' id='textbox'>
-        <div v-html='textContent'></div>
+      <div class="hide-scroll textbox">
+        <div @click='toggleTextbox("")' v-if='textboxActive' id='textbox'>
+          <div v-html='textContent'></div>
+        </div>
       </div>
     </div>
 
@@ -75,8 +77,19 @@ export default {
     background: $white;
     min-width: 400px;
     min-height: 200px;
-    max-height: 80vh;
-    max-width: 80vw;
+    max-height: 75vh;
+    max-width: 700px;
+    overflow-y: scroll;
+    @include screen-size('medium') {
+      min-width: 400px;
+      max-width: 80vw;
+    }
+    @include screen-size('small') {
+      font-size: $font-size-mob-s;
+      line-height: $line-height-mob-s;
+      min-width: 200px;
+      max-width: 80vw;
+    }
   }
 }
 

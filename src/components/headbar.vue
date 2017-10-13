@@ -1,10 +1,10 @@
 <template>
   <div class="headbar" :class="{ more: main.showMore }">
     <p class="asterisk" @click="SHOW_MORE">*</p>
-    <p class="text">
-      <router-link to="/">Aura Rosenberg</router-link>
-      <router-link to="about">biography/bibliography/links</router-link>
-    </p>
+    <div class="bar">
+      <router-link to="/" id="aura">Aura Rosenberg</router-link>
+      <router-link to="about" id="about"></router-link>
+    </div>
   </div>
 </template>
 
@@ -51,33 +51,60 @@ export default {
   width: 100vw;
   background: transparent;
   user-select: none;
-  .text {
-    position: relative;
-    margin-top: 71px;
-    margin-bottom: 0px;
-    margin-left: 52px;
-    display: none;
-    line-height: 18px;
-    a {
-      display: inline-block;
-      margin-right: 3px;
-    }
-  }
   .asterisk {
-    position: relative;
+    position: absolute;
     font-size: $logo-size;
-    margin-left: 30px;
-    margin-top: 22px;
-    margin-bottom: -97px;
     line-height: 18px;
+    left: 30px;
+    top: 25px;
+    @include screen-size('medium') {
+      left: 15px;
+      top: 21px;
+      font-size: $logo-size-mob;
+    }
     &:hover {
       color: $black;
       cursor: pointer;
     }
   }
+  .bar {
+    width: 100vw;
+    padding-left: 55px;
+    @include screen-size('medium') {
+      padding-left: 42px;
+    }
+    clear: both;
+    a {
+      display: none;
+      position: relative;
+      margin-top: 15px;
+      margin-right: 9px;
+      float: left;
+      @include screen-size('medium') {
+        margin-top: 9px;
+        font-size: $font-size-mob;
+        line-height: $line-height-mob;
+      }
+      &#aura {
+        float: left;
+      }
+      &#about {
+        &:after {
+          content: 'biography/bibliography/links'
+        }
+        @include screen-size('medium') {
+          float: right;
+          margin-right: 15px;
+          &:after {
+            content: 'menu'
+          }
+        }
+      }
+    }
+  }
   &.more {
     background: white;
-    .text {
+    a {
       display: inline-block;
     }
   }

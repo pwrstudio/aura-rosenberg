@@ -88,26 +88,41 @@ export default {
   background: $background-color;
   width: 100vw;
   height: 100vh;
-  @include screen-size('small') {
+  @include screen-size('medium') {
     overflow-y: scroll;
   }
+  @include screen-size('small') {
+    font-size: $font-size-mob-s;
+    line-height: $line-height-mob-s;
+  }
   .col {
-    // height: 100vh;
     padding-top: $margin-sides * 3;
     padding-left: 30px;
     // Hide scroll stuff
     @include hide-scroll-inner(33.33vw, 100vh, hor);
-    // overwrite padding from mixin
+    // overwrite padding added via mixin
     padding-right: calc(16px + 4px);
+    @include screen-size('medium') {
+      &.left {
+          padding-top: $line-height-mob-s * 2;
+      }
+      padding-top: 0;
+    }
+    @include screen-size('small') {
+      &.left {
+          padding-top: $line-height-mob-s * 3;
+      }
+      padding-top: 0;
+    }
     &.right {
       padding-right: calc(16px + 30px);
     }
-    @include screen-size('small') {
+    @include screen-size('medium') {
       position: static;
       width: 100%;
       height: auto;
       padding-left: 20px;
-      padding-right: 20px;
+      padding-right: 40px;
     }
     .publications, .ongoing, .links {
       table-layout: auto;
@@ -119,8 +134,17 @@ export default {
     .list {
       table-layout: fixed;
       margin-bottom: $line-height * 3;
+      @include screen-size('medium') {
+        margin-bottom: $line-height-mob-s * 2;
+      }
       tr {
         td {
+          @include screen-size('medium') {
+            display: block;
+            &:not(.yr) {
+              margin-bottom: $line-height-mob-s;
+            }
+          }
           &.yr {
             width: $margin-sides * 3;
           }
@@ -149,6 +173,10 @@ export default {
 }
 
 .column {
+  @include screen-size('medium') {
+    width: 50vw;
+    height: auto;
+  }
   @include screen-size('small') {
     width: 100vw;
     height: auto;
