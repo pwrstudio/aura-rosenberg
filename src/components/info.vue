@@ -99,7 +99,7 @@ export default {
     padding-top: $margin-sides * 3;
     padding-left: 30px;
     // Hide scroll stuff
-    @include hide-scroll-inner(33.33vw, 100vh, hor);
+    @include hide-scroll-inner(33.33vw, 100%, hor);
     // overwrite padding added via mixin
     padding-right: calc(16px + 4px);
     @include screen-size('medium') {
@@ -175,6 +175,7 @@ export default {
 .column {
   @include screen-size('medium') {
     width: 50vw;
+    float: left;
     height: auto;
   }
   @include screen-size('small') {

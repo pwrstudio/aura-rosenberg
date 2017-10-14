@@ -36,18 +36,20 @@ export default {
 @import "./assets/fonts/nimbus/styles.css";
 @import "./style/_variables.scss";
 
-#app {
-  font-family: $sans-serif-stack;
-  font-size: $font-size;
-  line-height: $line-height;
-  color: $black;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 body {
   background: $white;
   overflow: hidden;
+  height: 100%;
+  position: fixed;
+  #app {
+    font-family: $sans-serif-stack;
+    font-size: $font-size;
+    line-height: $line-height;
+    color: $black;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100%;
+  }
 }
 
 .hide-scroll {
@@ -56,24 +58,29 @@ body {
   // y is hide horizontal scroll bar, x is hide vertical scroll bar
   position: relative;
   &.main {
-    @include hide-scroll-outer(100vw, 100vh, vert);
+    @include hide-scroll-outer(100vw, 100%, vert);
   }
   &.column {
     float: left;
-    @include hide-scroll-outer(33.33vw, 100vh, hor);
+    @include hide-scroll-outer(33.33vw, 100%, hor);
   }
 }
 
 .works {
   z-index: 0;
   display: flex;
-  width: 100vw;
-  @include hide-scroll-inner(100vw, 100vh, vert);
+  display: -webkit-flex; /* NEW */
+  @include hide-scroll-inner(100vw, 100%, vert);
   .work {
+    flex: 1 0 auto;
+    -webkit-flex: 1 0 auto;
     display: inline-block;
     position: relative;
+    height: 100%;
+    flex-grow: 1;
     img {
-      height: 100vh;
+      height: 100%;
+      width: auto;
     }
     .text {
       position: absolute;
