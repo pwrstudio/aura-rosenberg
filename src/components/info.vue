@@ -104,13 +104,8 @@ export default {
     padding-right: calc(16px + 4px);
     @include screen-size('medium') {
       &.left {
-          padding-top: $line-height-mob-s * 2;
-      }
-      padding-top: 0;
-    }
-    @include screen-size('small') {
-      &.left {
-          padding-top: $line-height-mob-s * 3;
+          padding-top: 0;
+          margin-top: $line-height-mob-s * 3;
       }
       padding-top: 0;
     }
