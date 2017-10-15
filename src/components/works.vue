@@ -2,8 +2,12 @@
   <div class="hide-scroll main">
     <!-- No content in outer -->
     <div class="works">
-      <div v-for="(item, index) in main.posts" class="work">
-        <img v-if='item.acf.images.length > 0 && item.acf.images[0].image.sizes' :src='item.acf.images[0].image.sizes["pwr-medium"]' :id="item.id"/>
+      <div v-for="item in main.posts" class="work">
+        <!-- If there is just one image OR more than one but none selected for frontpage => show first image -->
+        <img v-if='(item.acf.images.length === 1 && item.acf.images[0].image.sizes) || (item.acf.images.length > 0 && !item.acf.images.find((e) => e.show_on_frontpage))' :src='item.acf.images[0].image.sizes["pwr-medium"]'>
+        <!-- Else-If there are multiple images => output all that are marked -->
+        <img v-if='item.acf.images.length > 1' v-for='image in item.acf.images.filter((e) => e.show_on_frontpage)' :src='image.image.sizes["pwr-medium"]'>
+        <!-- Caption -->
         <div class="text" v-if="main.showMore">
           <span v-html="item.title.rendered"></span>
           <!-- Show "more images" link if the post has multiple images -->
@@ -11,6 +15,7 @@
           <!-- Show "text" link if the post has a text field -->
           <span v-if='item.acf.text'>(<span @click='toggleTextbox(item.acf.text)' class='pseudo-link'>text</span>)</span>
         </div>
+
       </div>
       <div class="hide-scroll textbox">
         <div @click='toggleTextbox("")' v-if='textboxActive' id='textbox'>
