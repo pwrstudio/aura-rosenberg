@@ -3,7 +3,9 @@
     <p class="asterisk" @click="SHOW_MORE">*</p>
     <div class="bar">
       <router-link to="/" id="aura">Aura Rosenberg</router-link>
-      <router-link to="about" id="about"></router-link>
+      <router-link to="about" class='large-menu'>{{main.info[0].title.rendered}}</router-link>
+      <router-link v-if='!main.textbox' to="about" class='small-menu'>menu</router-link>
+      <div v-if='main.textbox' @click='TOGGLE_TEXTBOX("")' class='small-close'>close</div>
     </div>
   </div>
 </template>
@@ -13,7 +15,7 @@ import {mapState, mapActions} from 'vuex'
 export default {
   name: 'headbar',
   methods: {
-    ...mapActions(['SHOW_MORE'])
+    ...mapActions(['SHOW_MORE', 'TOGGLE_TEXTBOX'])
   },
   computed: {
     ...mapState([
@@ -73,18 +75,6 @@ export default {
       &#aura {
         float: left;
       }
-      &#about {
-        &:after {
-          content: 'biography/bibliography/links'
-        }
-        @include screen-size('medium') {
-          float: right;
-          margin-right: 15px;
-          &:after {
-            content: 'menu'
-          }
-        }
-      }
     }
   }
   &.more {
@@ -106,6 +96,37 @@ export default {
   }
   a:hover {
     color: $black;
+  }
+}
+
+.large-menu {
+  display: block;
+  @include screen-size('medium') {
+    display: none !important;
+  }
+}
+
+.small-menu {
+  position: absolute !important;
+  right: 0 !important;
+  display: none !important;
+  @include screen-size('medium') {
+    display: block !important;
+  }
+}
+
+.small-close {
+  position: absolute !important;
+  right: 10px !important;
+  top: 11px;
+  display: none !important;
+  color: $green;
+  &:hover {
+    color: $black;
+  }
+  cursor: pointer;
+  @include screen-size('medium') {
+    display: block !important;
   }
 }
 </style>
