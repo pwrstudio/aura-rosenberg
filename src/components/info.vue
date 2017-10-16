@@ -89,12 +89,12 @@ export default {
   height: 100vh;
   @include screen-size('medium') {
     overflow-y: scroll;
-    padding-top: $line-height-mob * 3;
+    padding-top: 12vh;
   }
   @include screen-size('small') {
     font-size: $font-size-mob-s;
     line-height: $line-height-mob-s;
-    padding-top: $line-height-mob-s * 4;
+    padding-top: 12vh;
   }
   .col {
     padding-top: $margin-sides * 3;
