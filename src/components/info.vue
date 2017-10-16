@@ -85,15 +85,16 @@ export default {
   z-index: 2;
   position: fixed;
   bottom: 0;
-  background: $background-color;
   width: 100vw;
   height: 100vh;
   @include screen-size('medium') {
     overflow-y: scroll;
+    padding-top: $line-height-mob * 3;
   }
   @include screen-size('small') {
     font-size: $font-size-mob-s;
     line-height: $line-height-mob-s;
+    padding-top: $line-height-mob-s * 4;
   }
   .col {
     padding-top: $margin-sides * 3;
@@ -102,13 +103,6 @@ export default {
     @include hide-scroll-inner(33.33vw, 100%, hor);
     // overwrite padding added via mixin
     padding-right: calc(16px + 4px);
-    @include screen-size('medium') {
-      &.left {
-          padding-top: 0;
-          margin-top: $line-height-mob-s * 3;
-      }
-      padding-top: 0;
-    }
     &.right {
       padding-right: calc(16px + 30px);
     }
@@ -118,6 +112,10 @@ export default {
       height: auto;
       padding-left: 20px;
       padding-right: 40px;
+      &.left {
+          padding-top: 0;
+      }
+      padding-top: 0;
     }
     .publications, .ongoing, .links {
       table-layout: auto;

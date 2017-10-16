@@ -98,12 +98,6 @@ body {
         font-size: $font-size-mob-s;
         line-height: $line-height-mob-s;
       }
-      a {
-        color: $green;
-        &:hover {
-          color: $black;
-        }
-      }
     }
   }
 }

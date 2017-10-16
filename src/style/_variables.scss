@@ -24,6 +24,7 @@ $scroll-bar      : 16px;
 /* Breakpoints */
 $breakpoints     : ( 'small': (max-width: 639px), 'medium': (max-width: 1000px), 'large': (max-width: 1600px), 'short': (max-height: 700px), );
 
+
 strong {
   color: $green;
 }
@@ -39,5 +40,8 @@ a {
   }
   &:hover {
     color: $black;
+    strong {
+      color: $black;
+    }
   }
 }
