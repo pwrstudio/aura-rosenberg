@@ -18,12 +18,17 @@ const state = {
       }
     }
   ],
-  showMore: false
+  showMore: false,
+  textbox: false,
+  textConent: ''
 }
 
 const actions = {
   [actionTypes.SHOW_MORE] ({ commit, state }) {
     commit(mutationTypes.SET_MORE)
+  },
+  [actionTypes.TOGGLE_TEXTBOX] ({ commit, state }, data) {
+    commit(mutationTypes.SET_TEXTBOX, data)
   },
   async [actionTypes.GET_POSTS] ({ commit, state }) {
     commit(mutationTypes.SET_POSTS, await api.getPosts())
@@ -34,7 +39,7 @@ const actions = {
 }
 
 const mutations = {
-  [mutationTypes.SET_MORE] (state, data) {
+  [mutationTypes.SET_MORE] (state) {
     state.showMore = !state.showMore
   },
   [mutationTypes.SET_POSTS] (state, data) {
@@ -42,6 +47,10 @@ const mutations = {
   },
   [mutationTypes.SET_INFO] (state, data) {
     state.info = data
+  },
+  [mutationTypes.SET_TEXTBOX] (state, data) {
+    state.textbox = !state.textbox
+    state.textContent = data
   }
 }
 
