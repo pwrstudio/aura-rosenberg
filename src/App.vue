@@ -101,4 +101,12 @@ body {
     }
   }
 }
+
+.pseudo-link {
+  color: $green;
+  cursor: pointer;
+  &:hover {
+    color: $black;
+  }
+}
 </style>

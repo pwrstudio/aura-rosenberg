@@ -5,7 +5,7 @@
       <div class='handle bottom'></div>
       <div class='handle left'></div>
       <div class='handle right'></div>
-      <div @click='TOGGLE_TEXTBOX("")' id='close-text'>close</div>
+      <a v-if='main.textDownload.length > 0' :href='main.textDownload' download id='download'>download/print</a>
       <h1></h1>
       <article v-html='main.textContent'></article>
     </div>
@@ -76,15 +76,18 @@ export default {
   padding-top: 10px;
   background: rgba(255,255,255,0.96);
   z-index: 20000;
-  overflow: auto;
+  overflow: hidden;
   font-size: 14px;
   line-height: 18px;
   border-bottom: 2px solid transparent;
   border-top: 2px solid transparent;
-  @include hide-scroll;
   article {
     cursor: auto;
     line-height: 18px;
+    max-height: 500px;
+    @include hide-scroll;
+    overflow: auto;
+    padding-bottom: 100px;
   }
   h1 {
     margin-bottom: 14px;
@@ -93,13 +96,13 @@ export default {
     }
     cursor: auto;
   }
-  #close-text {
+  #download {
     position: absolute;
     top: 0;
     right: 5px;
     cursor: pointer;
     z-index: 1000;
-    // display: none;
+    display: block;
   }
   @include screen-size('small') {
     position: fixed;

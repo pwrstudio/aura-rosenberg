@@ -20,7 +20,8 @@ const state = {
   ],
   showMore: false,
   textbox: false,
-  textConent: ''
+  textConent: '',
+  textDownload: ''
 }
 
 const actions = {
@@ -50,7 +51,8 @@ const mutations = {
   },
   [mutationTypes.SET_TEXTBOX] (state, data) {
     state.textbox = !state.textbox
-    state.textContent = data
+    state.textContent = data.content
+    state.textDownload = data.download
   }
 }
 

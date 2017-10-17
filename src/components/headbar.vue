@@ -109,9 +109,9 @@ export default {
 .small-menu {
   position: absolute !important;
   right: 0 !important;
-  display: none !important;
+  display: none;
   @include screen-size('medium') {
-    display: block !important;
+    display: block;
   }
 }
 
