@@ -57,6 +57,10 @@
 }
 
 @mixin hide-scroll-outer($width, $height, $direction) {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
   position: relative;
   @if $direction == "hor" {
     overflow-x: hidden;
@@ -73,11 +77,15 @@
 }
 
 @mixin hide-scroll-inner($width, $height, $direction) {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
   position: absolute;
   @if $direction == "hor" {
-    width: calc(#{$width} + 16px);
+    width: calc(#{$width});
     height: $height;
-    padding-right: 16px;
+    padding-right: 26px;
     overflow-x: hidden;
     overflow-y: scroll;
   }

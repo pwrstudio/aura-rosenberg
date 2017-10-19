@@ -94,11 +94,11 @@ export default {
   @include screen-size('small') {
     font-size: $font-size-mob-s;
     line-height: $line-height-mob-s;
-    padding-top: 12vh;
+    padding-top: 40px;
   }
   .col {
-    padding-top: $margin-sides * 3;
-    padding-left: 30px;
+    padding-top: 40px;
+    padding-left: 45px;
     // Hide scroll stuff
     @include hide-scroll-inner(33.33vw, 100%, hor);
     // overwrite padding added via mixin
@@ -110,7 +110,7 @@ export default {
       position: static;
       width: 100%;
       height: auto;
-      padding-left: 20px;
+      // padding-left: 20px;
       padding-right: 40px;
       &.left {
           padding-top: 0;
@@ -119,14 +119,14 @@ export default {
     }
     .publications, .ongoing, .links {
       table-layout: auto;
-      margin: 0 0 $line-height * 2 0;
+      margin: 0 0 $line-height 0;
       img {
         width: 40%;
       }
     }
     .list {
       table-layout: fixed;
-      margin-bottom: $line-height * 3;
+      margin-bottom: $line-height * 1;
       @include screen-size('medium') {
         margin-bottom: $line-height-mob-s * 2;
       }
@@ -139,13 +139,17 @@ export default {
             }
           }
           &.yr {
-            width: $margin-sides * 3;
+            width: 45px;
           }
         }
       }
     }
     p {
       &.title {
+        &:before {
+          content: '\A';
+          white-space: pre
+        }
         &:after {
           content: '\A\A';
           white-space: pre

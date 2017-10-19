@@ -2,8 +2,8 @@
 $line-height     : 26px;
 $serif-stack     : 'Times-Roman', times, georgia, serif;
 $sans-serif-stack: 'NimbusSansNo5TOT-Medium', helvetica, arial, sans-serif;
-$font-size       : 16px;
-$line-height     : 21px;
+$font-size       : 15px;
+$line-height     : 19px;
 $font-size-mob-s : 12px;
 $line-height-mob-s: 14px;
 $font-size-mob   : 17px;
@@ -22,26 +22,4 @@ $border-width    : 1px;
 $margin-sides    : 20px;
 $scroll-bar      : 16px;
 /* Breakpoints */
-$breakpoints     : ( 'small': (max-width: 639px), 'medium': (max-width: 1000px), 'large': (max-width: 1600px), 'short': (max-height: 700px), );
-
-
-strong {
-  color: $green;
-}
-
-a {
-  color: $green;
-  text-decoration: none;
-  &:active {
-    color: $green;
-  }
-  &:visited {
-    color: $green;
-  }
-  &:hover {
-    color: $black;
-    strong {
-      color: $black;
-    }
-  }
-}
+$breakpoints     : ( 'small': (max-width: 639px), 'medium': (max-width: 860px), 'large': (max-width: 1600px), 'short': (max-height: 700px), );

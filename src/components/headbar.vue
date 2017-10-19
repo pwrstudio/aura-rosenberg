@@ -2,9 +2,9 @@
   <div class="headbar" :class="{more: main.showMore}">
     <p class="asterisk" @click="SHOW_MORE">*</p>
     <div class="bar">
-      <router-link to="/" id="aura">Aura Rosenberg</router-link>
-      <router-link to="about" class='large-menu'>{{main.info[0].title.rendered}}</router-link>
-      <router-link v-if='!main.textbox' to="about" class='small-menu'>menu</router-link>
+      <router-link to="/" id="aura" class='logo'>Aura Rosenberg</router-link>
+      <router-link v-if='$route.name !== "about"' to="about" class='large-menu'>{{main.info[0].title.rendered}}</router-link>
+      <router-link v-if='!main.textbox && $route.name !== "about"' to="about" class='small-menu'>menu</router-link>
       <div v-if='main.textbox' @click='TOGGLE_TEXTBOX("")' class='small-close'>close</div>
     </div>
   </div>
@@ -34,7 +34,7 @@ export default {
   font-weight: 500;
   z-index: 9;
   position: fixed;
-  height: 36px;
+  height: 32px;
   width: 100vw;
   background: transparent;
   user-select: none;
@@ -42,8 +42,8 @@ export default {
     position: absolute;
     font-size: $logo-size;
     line-height: 18px;
-    left: 30px;
-    top: 25px;
+    left: 20px;
+    top: 17px;
     @include screen-size('medium') {
       left: 15px;
       top: 21px;
@@ -56,7 +56,7 @@ export default {
   }
   .bar {
     width: 100vw;
-    padding-left: 55px;
+    padding-left: 45px;
     @include screen-size('medium') {
       padding-left: 42px;
     }
@@ -64,7 +64,7 @@ export default {
     a {
       display: none;
       position: relative;
-      margin-top: 15px;
+      margin-top: 8px;
       margin-right: 9px;
       float: left;
       @include screen-size('medium') {
@@ -78,9 +78,15 @@ export default {
     }
   }
   &.more {
-    background: white;
-    a {
+    background: rgba(255,255,255,0.96);
+    .large-menu,
+    .logo {
       display: inline-block;
+    }
+    @include screen-size('medium') {
+      .small-menu {
+        display: block !important;
+      }
     }
   }
   a, p {

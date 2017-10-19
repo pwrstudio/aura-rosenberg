@@ -85,10 +85,10 @@ body {
     .text {
       position: absolute;
       bottom: 0;
-      height: $line-height * 2;
-      line-height: $line-height;
-      padding: 6px 0 0 $margin-sides;
-      background: $background-color;
+      height: 34px;
+      line-height: 34px;
+      padding: 4px 0 0 $margin-sides;
+      background: rgba(255,255,255,0.96);
       z-index: 3;
       color: $black;
       width: 100%;
@@ -101,6 +101,29 @@ body {
     }
   }
 }
+
+strong {
+  color: $green;
+  opacity: 0.7;
+}
+
+a {
+  color: $green;
+  text-decoration: none;
+  &:active {
+    color: $green;
+  }
+  &:visited {
+    color: $green;
+  }
+  &:hover {
+    color: $black;
+    strong {
+      color: $black;
+    }
+  }
+}
+
 
 .pseudo-link {
   color: $green;
