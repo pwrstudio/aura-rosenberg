@@ -34,6 +34,8 @@ export default {
 @import "./style/helpers/_responsive.scss";
 @import "./style/helpers/_reset.css";
 @import "./assets/fonts/nimbus/styles.css";
+@import "./assets/fonts/serif-regular.css";
+@import "./assets/fonts/serif-bold.css";
 @import "./style/_variables.scss";
 
 body {
@@ -42,7 +44,7 @@ body {
   height: 100%;
   position: fixed;
   #app {
-    font-family: $sans-serif-stack;
+    font-family: $serif-stack;
     font-size: $font-size;
     line-height: $line-height;
     color: $black;
@@ -69,15 +71,13 @@ body {
 .works {
   z-index: 0;
   display: flex;
-  display: -webkit-flex; /* NEW */
-  @include hide-scroll-inner(100vw, 100%, vert);
+  height: 100%;
+  @include hide-scroll();
   .work {
-    flex: 1 0 auto;
-    -webkit-flex: 1 0 auto;
-    display: inline-block;
+    display: inline;
     position: relative;
     height: 100%;
-    flex-grow: 1;
+    width: auto;
     img {
       height: 100%;
       width: auto;

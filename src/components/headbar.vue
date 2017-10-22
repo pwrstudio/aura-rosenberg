@@ -2,9 +2,9 @@
   <div class="headbar" :class="{more: main.showMore}">
     <p class="asterisk" @click="SHOW_MORE">*</p>
     <div class="bar">
-      <router-link to="/" id="aura" class='logo'>Aura Rosenberg</router-link>
+      <router-link v-if='!main.textbox' to="/" id="aura" class='logo'>Aura Rosenberg</router-link>
       <router-link v-if='$route.name !== "about"' to="about" class='large-menu'>{{main.info[0].title.rendered}}</router-link>
-      <router-link v-if='!main.textbox && $route.name !== "about"' to="about" class='small-menu'>menu</router-link>
+      <router-link v-if='!main.textbox && $route.name !== "about"' to="about" class='small-menu'>about</router-link>
       <div v-if='main.textbox' @click='TOGGLE_TEXTBOX("")' class='small-close'>close</div>
     </div>
   </div>
@@ -41,6 +41,7 @@ export default {
   .asterisk {
     position: absolute;
     font-size: $logo-size;
+    font-family: $sans-serif-stack;
     line-height: 18px;
     left: 20px;
     top: 17px;
