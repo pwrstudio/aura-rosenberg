@@ -1,5 +1,5 @@
 <template>
-  <div class="hide-scroll main">
+  <div class="main">
     <!-- No content in outer -->
     <div class="works">
       <div v-for="item in main.posts" class="work">

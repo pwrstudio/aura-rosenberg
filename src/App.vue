@@ -33,7 +33,6 @@ export default {
 @import "./style/helpers/_mixins.scss";
 @import "./style/helpers/_responsive.scss";
 @import "./style/helpers/_reset.css";
-@import "./assets/fonts/nimbus/styles.css";
 @import "./assets/fonts/serif-regular.css";
 @import "./assets/fonts/serif-bold.css";
 @import "./style/_variables.scss";
@@ -54,30 +53,23 @@ body {
   }
 }
 
-.hide-scroll {
-  // register elements to hide here
-  // then apply the inner mixin to the el itself
-  // y is hide horizontal scroll bar, x is hide vertical scroll bar
-  position: relative;
-  &.main {
-    @include hide-scroll-outer(100vw, 100%, vert);
-  }
-  &.column {
-    float: left;
-    @include hide-scroll-outer(33.33vw, 100%, hor);
-  }
+.main {
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100vw;
+  height: 100vh;
 }
 
 .works {
   z-index: 0;
-  display: flex;
-  height: 100%;
-  @include hide-scroll();
+  display: inline-flex;
+  height: 100vh;
+  // @include hide-scroll();
   .work {
-    display: inline;
+    display: inline-block;
     position: relative;
     height: 100%;
-    width: auto;
+    width: 100%;
     img {
       height: 100%;
       width: auto;
@@ -86,7 +78,7 @@ body {
       position: absolute;
       bottom: 0;
       height: 34px;
-      line-height: 34px;
+      line-height: 24px;
       padding: 4px 0 0 $margin-sides;
       background: rgba(255,255,255,0.96);
       z-index: 3;
@@ -123,7 +115,6 @@ a {
     }
   }
 }
-
 
 .pseudo-link {
   color: $green;

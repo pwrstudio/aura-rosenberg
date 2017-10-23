@@ -1,8 +1,8 @@
 <template>
   <div class="info">
 
-    <div class="hide-scroll column">
-      <div class="col left">
+    <div class="column">
+      <div class="inner left">
         <p class="title">Solo Exhibitions</p>
         <table class="list">
           <tr v-for="item in main.info[0].acf.solo_exhibitions">
@@ -18,8 +18,8 @@
       </div>
     </div>
 
-    <div class="hide-scroll column">
-      <div class="col mid">
+    <div class="column">
+      <div class="inner mid">
         <p class="title">Publications</p>
         <table class="publications" v-for="item in main.info[0].acf.publications">
           <img v-if="item.image" :src="item.image.url"/>
@@ -28,8 +28,8 @@
       </div>
     </div>
 
-    <div class="hide-scroll column">
-      <div class="col right">
+    <div class="column">
+      <div class="inner right">
         <p class="title">Ongoing/Upcoming</p>
         <table class="ongoing">
           <tr v-for="item in main.info[0].acf.ongoing">
@@ -86,7 +86,8 @@ export default {
   position: fixed;
   bottom: 0;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 32px);
+  overflow: hidden;
   @include screen-size('medium') {
     overflow-y: scroll;
     padding-top: 12vh;
@@ -94,15 +95,34 @@ export default {
   @include screen-size('small') {
     font-size: $font-size-mob-s;
     line-height: $line-height-mob-s;
-    padding-top: 40px;
+    padding-top: 0;
+    top: 42px;
   }
-  .col {
+}
+
+.column {
+  width: 33vw;
+  height: calc(100vh - 32px);
+  float: left;
+  overflow: hidden;
+  @include screen-size('medium') {
+    width: 50vw;
+    float: left;
+    height: auto;
+  }
+  @include screen-size('small') {
+    width: 100vw;
+    height: auto;
+  }
+  .inner {
     padding-top: 40px;
-    padding-left: 45px;
-    // Hide scroll stuff
-    @include hide-scroll-inner(33.33vw, 100%, hor);
-    // overwrite padding added via mixin
+    padding-left: 43px;
+    background: $white;
     padding-right: calc(16px + 4px);
+    width: calc(33vw + 16px);
+    height: calc(100vh - 32px);
+    overflow-y: scroll;
+    @include hide-scroll();
     &.right {
       padding-right: calc(16px + 30px);
     }
@@ -110,7 +130,6 @@ export default {
       position: static;
       width: 100%;
       height: auto;
-      // padding-left: 20px;
       padding-right: 40px;
       &.left {
           padding-top: 0;
@@ -166,18 +185,6 @@ export default {
         }
       }
     }
-  }
-}
-
-.column {
-  @include screen-size('medium') {
-    width: 50vw;
-    float: left;
-    height: auto;
-  }
-  @include screen-size('small') {
-    width: 100vw;
-    height: auto;
   }
 }
 </style>

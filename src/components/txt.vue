@@ -7,7 +7,9 @@
       <div class='handle right'></div>
       <a v-if='main.textDownload.length > 0' :href='main.textDownload' download id='download'>download/print</a>
       <h1></h1>
-      <article v-html='main.textContent'></article>
+      <article>
+        <div v-html='main.textContent' class='inner'></div>
+      </article>
     </div>
   </div>
 </template>
@@ -81,13 +83,26 @@ export default {
   line-height: 18px;
   border-bottom: 2px solid transparent;
   border-top: 2px solid transparent;
+  height: 400px;
   article {
     cursor: auto;
     line-height: 18px;
-    max-height: 500px;
-    @include hide-scroll;
-    overflow: auto;
-    padding-bottom: 100px;
+    height: 100%;
+    overflow: hidden;
+    display: inline-block;
+    .inner {
+      @include hide-scroll;
+      height: 100%;
+      overflow-y: auto;
+      width: calc(100% + 16px);
+      padding-right: 16px;
+      display: inline-block;
+      p {
+        background: yellow;
+        display: block;
+        margin-bottom: 60px;
+      }
+    }
   }
   h1 {
     margin-bottom: 14px;
@@ -99,14 +114,14 @@ export default {
   #download {
     position: absolute;
     top: 0;
-    right: 5px;
+    right: 10px;
     cursor: pointer;
     z-index: 1000;
     display: block;
   }
   @include screen-size('small') {
     position: fixed;
-    top: 0;
+    top: 32px;
     left: 0;
     width: 100vw;
     height: 100vh;
@@ -116,7 +131,7 @@ export default {
       margin-top: 12px;
     }
     article {
-      margin-top: 42px;
+      max-height: 100%;
     }
     #close-text {
       position: absolute;

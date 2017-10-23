@@ -1,8 +1,14 @@
 <template>
   <div class="headbar" :class="{more: main.showMore}">
-    <p class="asterisk" @click="SHOW_MORE">*</p>
+    <div class="asterisk" @click="SHOW_MORE">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      	 viewBox="0 0 133.6 134.4" style="enable-background:new 0 0 133.6 134.4;" xml:space="preserve">
+      <polygon points="50.9,0 50,47.6 7.9,33.5 0,60.4 42.2,74.9 7.9,116.6 33.1,134.4 65.8,94.3 100.5,134.4 124.9,116.6 91.4,74.9
+      	133.6,61.6 124.9,33.5 83.1,47.6 83.1,0.8 "/>
+      </svg>
+    </div>
     <div class="bar">
-      <router-link v-if='!main.textbox' to="/" id="aura" class='logo'>Aura Rosenberg</router-link>
+      <router-link to="/" id="aura" class='logo' :class='{hide: main.textbox}'>Aura Rosenberg</router-link>
       <router-link v-if='$route.name !== "about"' to="about" class='large-menu'>{{main.info[0].title.rendered}}</router-link>
       <router-link v-if='!main.textbox && $route.name !== "about"' to="about" class='small-menu'>about</router-link>
       <div v-if='main.textbox' @click='TOGGLE_TEXTBOX("")' class='small-close'>close</div>
@@ -44,15 +50,45 @@ export default {
     font-family: $sans-serif-stack;
     line-height: 18px;
     left: 20px;
-    top: 17px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg {
+      height: 11px;
+      width: 11px;
+      polygon {
+        fill: $green;
+      }
+    }
     @include screen-size('medium') {
       left: 15px;
-      top: 21px;
+      top: 3px;
       font-size: $logo-size-mob;
     }
     &:hover {
-      color: $black;
+      svg {
+        polygon {
+          fill: $black;
+        }
+      }
       cursor: pointer;
+    }
+    @include screen-size('small') {
+      &:hover {
+        svg {
+          polygon {
+            fill: $green;
+          }
+        }
+      }
+      &:active{
+        svg {
+          polygon {
+            fill: $black;
+          }
+        }
+      }
     }
   }
   .bar {
@@ -134,6 +170,14 @@ export default {
   cursor: pointer;
   @include screen-size('medium') {
     display: block !important;
+  }
+}
+
+.logo {
+  @include screen-size('small') {
+    &.hide {
+      display: none !important;
+    }
   }
 }
 </style>

@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "reading-serif";
+    src: url("serif-Bold.eot");
+    src: url("serif-Bold.eot?#iefix") format("embedded-opentype"),
+         url("serif-Bold.woff2") format("woff2"),
+         url("serif-Bold.woff") format("woff"),
+         url("serif-Bold.ttf") format("ttf"),
+         url("serif-Bold.svg") format("svg");
+    font-style: normal;
+    font-weight: bold;
+}
