@@ -15,14 +15,12 @@ export default {
     headbar
   },
   computed: {
-    ...mapState([
-      'main'
-    ])
+    ...mapState(['main'])
   },
   methods: {
     ...mapActions(['GET_POSTS', 'GET_INFO'])
   },
-  mounted () {
+  mounted() {
     this.GET_POSTS()
     this.GET_INFO()
   }
@@ -30,12 +28,12 @@ export default {
 </script>
 
 <style lang='scss'>
-@import "./style/helpers/_mixins.scss";
-@import "./style/helpers/_responsive.scss";
-@import "./style/helpers/_reset.css";
-@import "./assets/fonts/serif-regular.css";
-@import "./assets/fonts/serif-bold.css";
-@import "./style/_variables.scss";
+@import './style/helpers/_mixins.scss';
+@import './style/helpers/_responsive.scss';
+@import './style/helpers/_reset.css';
+@import './assets/fonts/serif-regular.css';
+@import './assets/fonts/serif-bold.css';
+@import './style/_variables.scss';
 
 body {
   background: $white;
@@ -80,7 +78,7 @@ body {
       height: 34px;
       line-height: 24px;
       padding: 4px 0 0 $margin-sides;
-      background: rgba(255,255,255,0.96);
+      background: rgba(255, 255, 255, 0.96);
       z-index: 3;
       color: $black;
       width: 100%;

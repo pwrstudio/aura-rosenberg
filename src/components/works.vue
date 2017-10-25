@@ -11,11 +11,17 @@
         <div class="text" v-if="main.showMore">
           <span v-html="item.title.rendered"></span>
           <!-- Show "more images" link if the post has multiple images -->
-          <span v-if='item.acf.images.length > 1'>(<router-link :to='item.slug'>more images</router-link>)</span>
+          <span v-if='item.acf.images.length > 1'>
+            (<router-link :to='item.slug'>more images</router-link>)
+          </span>
           <!-- Show "text" link if the post has a text field & a download link -->
-          <span v-if='item.acf.text && item.acf.download'>(<span @click='TOGGLE_TEXTBOX({content: item.acf.text, download: item.acf.download.url})' class='pseudo-link'>text</span>)</span>
+          <span v-if='item.acf.text && item.acf.download'>
+            (<span @click='TOGGLE_TEXTBOX({content: item.acf.text, download: item.acf.download.url})' class='pseudo-link'>text</span>)
+          </span>
           <!-- Show "text" link if the post has a text field BUT NO download link -->
-          <span v-else-if='item.acf.text'>(<span @click='TOGGLE_TEXTBOX({content: item.acf.text, download: ""})' class='pseudo-link'>text</span>)</span>
+          <span v-else-if='item.acf.text'>
+            (<span @click='TOGGLE_TEXTBOX({content: item.acf.text, download: ""})' class='pseudo-link'>text</span>)
+          </span>
         </div>
       </div>
       <!-- Textbox -->
@@ -37,9 +43,7 @@ export default {
     ...mapActions(['TOGGLE_TEXTBOX'])
   },
   computed: {
-    ...mapState([
-      'main'
-    ])
+    ...mapState(['main'])
   }
 }
 </script>

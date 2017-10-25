@@ -7,9 +7,11 @@
         <div class="text" v-if="main.showMore">
           <span v-html="singleWork[0].title.rendered"></span>
           <!-- Show "text" link if the post has a text field & a download link -->
-          <span v-if='singleWork[0].acf.text && singleWork[0].acf.download'>(<span @click='TOGGLE_TEXTBOX({content: singleWork[0].acf.text, download: singleWork[0].acf.download.url})' class='pseudo-link'>text</span>)</span>
+          <span v-if='singleWork[0].acf.text && singleWork[0].acf.download'>(
+            <span @click='TOGGLE_TEXTBOX({content: singleWork[0].acf.text, download: singleWork[0].acf.download.url})' class='pseudo-link'>text</span>)</span>
           <!-- Show "text" link if the post has a text field BUT NO download link -->
-          <span v-else-if='singleWork[0].acf.text'>(<span @click='TOGGLE_TEXTBOX({content: singleWork[0].acf.text, download: ""})' class='pseudo-link'>text xx</span>)</span>
+          <span v-else-if='singleWork[0].acf.text'>(
+            <span @click='TOGGLE_TEXTBOX({content: singleWork[0].acf.text, download: ""})' class='pseudo-link'>text xx</span>)</span>
         </div>
       </div>
     </div>
@@ -32,10 +34,8 @@ export default {
     ...mapActions(['TOGGLE_TEXTBOX'])
   },
   computed: {
-    ...mapState([
-      'main'
-    ]),
-    singleWork () {
+    ...mapState(['main']),
+    singleWork() {
       // Get the post that has a slug that is equal to the one in the router
       return this.main.posts.filter(e => e.slug === this.$route.params.slug)
     }

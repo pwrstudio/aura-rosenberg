@@ -6,13 +6,15 @@
         <p class="title">Solo Exhibitions</p>
         <table class="list">
           <tr v-for="item in main.info[0].acf.solo_exhibitions">
-            <td class="yr" v-html="item.year"></td><td v-html="item.text"></td>
+            <td class="yr" v-html="item.year"></td>
+            <td v-html="item.text"></td>
           </tr>
         </table>
         <p class="title">Group Exhibitions</p>
         <table class="list">
           <tr v-for="item in main.info[0].acf.group_exhibitions">
-            <td class="yr" v-html="item.year"></td><td v-html="item.text"></td>
+            <td class="yr" v-html="item.year"></td>
+            <td v-html="item.text"></td>
           </tr>
         </table>
       </div>
@@ -22,7 +24,7 @@
       <div class="inner mid">
         <p class="title">Publications</p>
         <table class="publications" v-for="item in main.info[0].acf.publications">
-          <img v-if="item.image" :src="item.image.url"/>
+          <img v-if="item.image" :src="item.image.url" />
           <tr v-html="item.text"></tr>
         </table>
       </div>
@@ -53,33 +55,31 @@ import {mapState} from 'vuex'
 
 export default {
   name: 'info',
-  data () {
+  data() {
     return {
       msg: 'info'
     }
   },
   computed: {
-    ...mapState([
-      'main'
-    ])
+    ...mapState(['main'])
   },
   head: {
-    title () {
+    title() {
       return {
         inner: this.title
       }
     }
   },
   watch: {
-    '$route' (to, from) {}
+    $route(to, from) {}
   }
 }
 </script>
 
 <style scoped lang='scss'>
-@import "../style/helpers/_mixins.scss";
-@import "../style/helpers/_responsive.scss";
-@import "../style/_variables.scss";
+@import '../style/helpers/_mixins.scss';
+@import '../style/helpers/_responsive.scss';
+@import '../style/_variables.scss';
 
 .info {
   z-index: 2;
@@ -132,11 +132,13 @@ export default {
       height: auto;
       padding-right: 40px;
       &.left {
-          padding-top: 0;
+        padding-top: 0;
       }
       padding-top: 0;
     }
-    .publications, .ongoing, .links {
+    .publications,
+    .ongoing,
+    .links {
       table-layout: auto;
       margin: 0 0 $line-height 0;
       img {
@@ -167,20 +169,20 @@ export default {
       &.title {
         &:before {
           content: '\A';
-          white-space: pre
+          white-space: pre;
         }
         &:after {
           content: '\A\A';
-          white-space: pre
+          white-space: pre;
         }
         &:first-child {
           &:before {
             content: '\A';
-            white-space: pre
+            white-space: pre;
           }
           &:after {
             content: '\A\A';
-            white-space: pre
+            white-space: pre;
           }
         }
       }

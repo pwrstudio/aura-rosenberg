@@ -1,10 +1,9 @@
 <template>
   <div class="headbar" :class="{more: main.showMore}">
     <div class="asterisk" @click="SHOW_MORE">
-      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-      	 viewBox="0 0 133.6 134.4" style="enable-background:new 0 0 133.6 134.4;" xml:space="preserve">
-      <polygon points="50.9,0 50,47.6 7.9,33.5 0,60.4 42.2,74.9 7.9,116.6 33.1,134.4 65.8,94.3 100.5,134.4 124.9,116.6 91.4,74.9
-      	133.6,61.6 124.9,33.5 83.1,47.6 83.1,0.8 "/>
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 133.6 134.4" style="enable-background:new 0 0 133.6 134.4;" xml:space="preserve">
+        <polygon points="50.9,0 50,47.6 7.9,33.5 0,60.4 42.2,74.9 7.9,116.6 33.1,134.4 65.8,94.3 100.5,134.4 124.9,116.6 91.4,74.9
+                  	133.6,61.6 124.9,33.5 83.1,47.6 83.1,0.8 " />
       </svg>
     </div>
     <div class="bar">
@@ -24,17 +23,15 @@ export default {
     ...mapActions(['SHOW_MORE', 'TOGGLE_TEXTBOX'])
   },
   computed: {
-    ...mapState([
-      'main'
-    ])
+    ...mapState(['main'])
   }
 }
 </script>
 
 <style scoped lang='scss'>
-@import "../style/helpers/_mixins.scss";
-@import "../style/helpers/_responsive.scss";
-@import "../style/_variables.scss";
+@import '../style/helpers/_mixins.scss';
+@import '../style/helpers/_responsive.scss';
+@import '../style/_variables.scss';
 
 .headbar {
   font-weight: 500;
@@ -49,6 +46,7 @@ export default {
     font-size: $logo-size;
     font-family: $sans-serif-stack;
     line-height: 18px;
+    top: 1px;
     left: 20px;
     height: 100%;
     display: flex;
@@ -82,7 +80,7 @@ export default {
           }
         }
       }
-      &:active{
+      &:active {
         svg {
           polygon {
             fill: $black;
@@ -115,7 +113,7 @@ export default {
     }
   }
   &.more {
-    background: rgba(255,255,255,0.96);
+    background: rgba(255, 255, 255, 0.96);
     .large-menu,
     .logo {
       display: inline-block;
@@ -126,7 +124,8 @@ export default {
       }
     }
   }
-  a, p {
+  a,
+  p {
     width: auto;
     color: $green;
     text-decoration: none;

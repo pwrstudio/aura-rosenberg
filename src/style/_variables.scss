@@ -1,25 +1,30 @@
 /* Typography */
-$line-height     : 26px;
-$serif-stack     : 'reading-serif', 'Times-Roman', times, georgia, serif;
+$line-height: 26px;
+$serif-stack: 'reading-serif', 'Times-Roman', times, georgia, serif;
 $sans-serif-stack: helvetica, arial, sans-serif;
-$font-size       : 15px;
-$line-height     : 19px;
-$font-size-mob-s : 14px;
+$font-size: 15px;
+$line-height: 19px;
+$font-size-mob-s: 14px;
 $line-height-mob-s: 14px;
-$font-size-mob   : 17px;
-$line-height-mob : 24px;
-$logo-size       : 36px;
-$logo-size-mob   : 38px;
+$font-size-mob: 17px;
+$line-height-mob: 24px;
+$logo-size: 36px;
+$logo-size-mob: 38px;
 $logo-line-height: $line-height;
 /* Color */
 $background-color: #fff;
-$green           : #00d400;
-$black           : #000;
-$grey            : #a7a9ac;
-$white           : #fff;
+$green: #00d400;
+$black: #000;
+$grey: #a7a9ac;
+$white: #fff;
 /* Space */
-$border-width    : 1px;
-$margin-sides    : 20px;
-$scroll-bar      : 16px;
+$border-width: 1px;
+$margin-sides: 20px;
+$scroll-bar: 16px;
 /* Breakpoints */
-$breakpoints     : ( 'small': (max-width: 639px), 'medium': (max-width: 860px), 'large': (max-width: 1600px), 'short': (max-height: 700px), );
+$breakpoints: (
+  'small': (max-width: 639px),
+  'medium': (max-width: 860px),
+  'large': (max-width: 1600px),
+  'short': (max-height: 700px)
+);

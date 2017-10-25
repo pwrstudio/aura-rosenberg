@@ -20,20 +20,18 @@ import interact from 'interactjs'
 export default {
   name: 'txt',
   computed: {
-    ...mapState([
-      'main'
-    ])
+    ...mapState(['main'])
   },
   methods: {
     ...mapActions(['TOGGLE_TEXTBOX']),
-    overlayClick (e) {
+    overlayClick(e) {
       if (e.target.attributes.id && e.target.attributes.id.value === 'overlay') {
         this.TOGGLE_TEXTBOX()
       }
     }
   },
-  mounted () {
-    function dragMoveListener (event) {
+  mounted() {
+    function dragMoveListener(event) {
       let target = event.target
       let x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
       let y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
@@ -51,9 +49,9 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-@import "../style/helpers/_mixins.scss";
-@import "../style/helpers/_responsive.scss";
-@import "../style/_variables.scss";
+@import '../style/helpers/_mixins.scss';
+@import '../style/helpers/_responsive.scss';
+@import '../style/_variables.scss';
 
 #overlay {
   position: fixed;
@@ -75,14 +73,14 @@ export default {
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 12px;
-  padding-top: 10px;
-  background: rgba(255,255,255,0.96);
+  padding-top: 12px;
+  background: rgba(255, 255, 255, 0.96);
   z-index: 20000;
   overflow: hidden;
   font-size: 14px;
   line-height: 18px;
-  border-bottom: 2px solid transparent;
-  border-top: 2px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid transparent;
   height: 400px;
   article {
     cursor: auto;
@@ -90,6 +88,7 @@ export default {
     height: 100%;
     overflow: hidden;
     display: inline-block;
+    font-size: 16px;
     .inner {
       @include hide-scroll;
       height: 100%;
@@ -113,7 +112,7 @@ export default {
   }
   #download {
     position: absolute;
-    top: 0;
+    top: 4px;
     right: 10px;
     cursor: pointer;
     z-index: 1000;
@@ -178,5 +177,4 @@ export default {
     height: 100%;
   }
 }
-
 </style>
