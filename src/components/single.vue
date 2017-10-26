@@ -5,13 +5,11 @@
         <img v-if='item.image.sizes' :src='item.image.sizes["pwr-large"]'>
         <!-- Caption -->
         <div class="text" v-if="main.showMore">
-          <span v-html="singleWork[0].title.rendered"></span>
+          <span v-html="item.caption"></span>
           <!-- Show "text" link if the post has a text field & a download link -->
-          <span v-if='singleWork[0].acf.text && singleWork[0].acf.download'>(
-            <span @click='TOGGLE_TEXTBOX({content: singleWork[0].acf.text, download: singleWork[0].acf.download.url})' class='pseudo-link'>text</span>)</span>
+          <span v-if='item.text && item.download'>(<span @click='TOGGLE_TEXTBOX({content: item.text, download: item.download.url})' class='pseudo-link'>text</span>)</span>
           <!-- Show "text" link if the post has a text field BUT NO download link -->
-          <span v-else-if='singleWork[0].acf.text'>(
-            <span @click='TOGGLE_TEXTBOX({content: singleWork[0].acf.text, download: ""})' class='pseudo-link'>text xx</span>)</span>
+          <span v-else-if='item.text'>(<span @click='TOGGLE_TEXTBOX({content: item.text, download: ""})' class='pseudo-link'>text</span>)</span>
         </div>
       </div>
     </div>

@@ -6,7 +6,6 @@
       <div class='handle left'></div>
       <div class='handle right'></div>
       <a v-if='main.textDownload.length > 0' :href='main.textDownload' download id='download'>download/print</a>
-      <h1></h1>
       <article>
         <div v-html='main.textContent' class='inner'></div>
       </article>
@@ -26,7 +25,7 @@ export default {
     ...mapActions(['TOGGLE_TEXTBOX']),
     overlayClick(e) {
       if (e.target.attributes.id && e.target.attributes.id.value === 'overlay') {
-        this.TOGGLE_TEXTBOX()
+        this.TOGGLE_TEXTBOX('')
       }
     }
   },
@@ -67,13 +66,13 @@ export default {
 
 #textbox {
   width: 450px;
+  max-height: 70vh;
   height: auto;
   position: relative;
-  max-height: 70vh;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 12px;
-  padding-top: 12px;
+  padding-top: 20px;
   background: rgba(255, 255, 255, 0.96);
   z-index: 20000;
   overflow: hidden;
@@ -81,38 +80,30 @@ export default {
   line-height: 18px;
   border-bottom: 4px solid transparent;
   border-top: 4px solid transparent;
-  height: 400px;
   article {
     cursor: auto;
     line-height: 18px;
     height: 100%;
     overflow: hidden;
-    display: inline-block;
     font-size: 16px;
     .inner {
-      @include hide-scroll;
-      height: 100%;
-      overflow-y: auto;
+      // @include hide-scroll;
+      background: green;
       width: calc(100% + 16px);
       padding-right: 16px;
       display: inline-block;
+      overflow-y: auto;
+      overflow-x: hidden;
+      height: 100%;
       p {
-        background: yellow;
         display: block;
         margin-bottom: 60px;
       }
     }
   }
-  h1 {
-    margin-bottom: 14px;
-    @include screen-size('small') {
-      margin-bottom: 10px;
-    }
-    cursor: auto;
-  }
   #download {
     position: absolute;
-    top: 4px;
+    top: 0px;
     right: 10px;
     cursor: pointer;
     z-index: 1000;

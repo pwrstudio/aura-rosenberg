@@ -35,20 +35,25 @@ export default {
 @import './assets/fonts/serif-bold.css';
 @import './style/_variables.scss';
 
+html {
+  height: 100%;
+}
+
 body {
   background: $white;
   overflow: hidden;
   height: 100%;
   position: fixed;
-  #app {
-    font-family: $serif-stack;
-    font-size: $font-size;
-    line-height: $line-height;
-    color: $black;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    height: 100%;
-  }
+}
+
+#app {
+  font-family: $serif-stack;
+  font-size: $font-size;
+  line-height: $line-height;
+  color: $black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
 }
 
 .main {
