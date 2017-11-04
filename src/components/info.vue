@@ -93,8 +93,8 @@ export default {
     padding-top: 12vh;
   }
   @include screen-size('small') {
-    font-size: $font-size-mob-s;
-    line-height: $line-height-mob-s;
+    font-size: 17px;
+    line-height: 21px;
     padding-top: 0;
     top: 42px;
   }
@@ -130,7 +130,7 @@ export default {
       position: static;
       width: 100%;
       height: auto;
-      padding-right: 40px;
+      padding-right: 15px;
       &.left {
         padding-top: 0;
       }

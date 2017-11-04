@@ -46,7 +46,7 @@ export default {
     font-size: $logo-size;
     font-family: $sans-serif-stack;
     line-height: 18px;
-    top: 1px;
+    top: 2px;
     left: 20px;
     height: 100%;
     display: flex;
@@ -61,7 +61,7 @@ export default {
     }
     @include screen-size('medium') {
       left: 15px;
-      top: 3px;
+      top: 2px;
       font-size: $logo-size-mob;
     }
     &:hover {

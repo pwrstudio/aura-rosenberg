@@ -48,8 +48,8 @@ body {
 
 #app {
   font-family: $serif-stack;
-  font-size: $font-size;
-  line-height: $line-height;
+  font-size: 15px;
+  line-height: 20px;
   color: $black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -80,7 +80,7 @@ body {
     .text {
       position: absolute;
       bottom: 0;
-      height: 34px;
+      height: 42px;
       line-height: 24px;
       padding: 4px 0 0 $margin-sides;
       background: rgba(255, 255, 255, 0.96);

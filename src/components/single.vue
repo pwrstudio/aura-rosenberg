@@ -1,7 +1,7 @@
 <template>
   <div class="hide-scroll main">
-    <div class="works" v-if='singleWork[0]'>
-      <div v-for="item in singleWork[0].acf.images" class="work">
+    <div class="works" v-if='singleWork'>
+      <div v-for="item in singleWork.acf.images" class="work">
         <img v-if='item.image.sizes' :src='item.image.sizes["pwr-large"]'>
         <!-- Caption -->
         <div class="text" v-if="main.showMore">
@@ -35,7 +35,10 @@ export default {
     ...mapState(['main']),
     singleWork() {
       // Get the post that has a slug that is equal to the one in the router
-      return this.main.posts.filter(e => e.slug === this.$route.params.slug)
+      let work = this.main.posts.find(e => e.slug === this.$route.params.slug)
+      // Remove first image
+      work.acf.images.shift()
+      return work
     }
   }
 }

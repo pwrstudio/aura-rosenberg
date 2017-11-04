@@ -5,7 +5,7 @@
       <div class='handle bottom'></div>
       <div class='handle left'></div>
       <div class='handle right'></div>
-      <a v-if='main.textDownload.length > 0' :href='main.textDownload' download id='download'>download/print</a>
+      <a v-if='main.textDownload.length > 0' :href='main.textDownload' download target=_blank id='download'>download/print</a>
       <article>
         <div v-html='main.textContent' id='inner' class='inner'></div>
       </article>
@@ -78,7 +78,7 @@ export default {
     position: relative;
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 12px;
+    padding-bottom: 8px;
     padding-top: 20px;
     background: rgba(255, 255, 255, 0.96);
     z-index: 20000;
