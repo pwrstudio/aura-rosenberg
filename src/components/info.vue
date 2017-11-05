@@ -22,6 +22,10 @@
 
     <div class="column">
       <div class="inner mid">
+        <p class="title">Projects</p>
+        <table class="publications" v-for="item in main.info[0].acf.projects">
+          <tr v-html="item.text"></tr>
+        </table>
         <p class="title">Publications</p>
         <table class="publications" v-for="item in main.info[0].acf.publications">
           <img v-if="item.image" :src="item.image.url" />
