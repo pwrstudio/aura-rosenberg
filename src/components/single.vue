@@ -1,5 +1,5 @@
 <template>
-  <div class="hide-scroll main">
+  <div id='main' class="hide-scroll main">
     <div class="works" v-if='singleWork'>
       <div v-for="item in singleWork.acf.images" class="work">
         <!-- Content -->

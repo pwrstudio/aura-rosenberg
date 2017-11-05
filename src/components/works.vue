@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div id='main' class="main">
     <!-- No content in outer -->
     <div class="works">
       <template v-for="item in main.posts">

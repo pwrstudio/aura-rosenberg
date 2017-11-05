@@ -19,10 +19,14 @@ export default {
   },
   methods: {
     ...mapActions(['GET_POSTS', 'GET_INFO'])
+    // reSizeMain() {
+    //   document.getElementById('main').style.height = window.outerHeight + 'px'
+    // }
   },
   mounted() {
     this.GET_POSTS()
     this.GET_INFO()
+    // this.reSizeMain()
   }
 }
 </script>
@@ -38,6 +42,11 @@ export default {
 
 html {
   height: 100%;
+  overflow: hidden;
+}
+
+* {
+  -webkit-overflow-scrolling: touch; /* iOS velocity scrolling */
 }
 
 body {
@@ -64,20 +73,22 @@ i {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
+  overflow: hidden;
 }
 
 .main {
+  position: fixed;
   overflow-x: auto;
   overflow-y: hidden;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 .works {
   z-index: 0;
   display: inline-flex;
   height: 100vh;
-  // @include hide-scroll();
+  overflow-y: hidden;
   .work {
     display: inline-block;
     position: relative;
@@ -107,6 +118,7 @@ i {
       @include screen-size('small') {
         font-size: $font-size-mob-s;
         line-height: $line-height-mob-s;
+        height: 100px;
       }
     }
   }
