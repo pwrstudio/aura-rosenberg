@@ -2,7 +2,9 @@
   <div class="hide-scroll main">
     <div class="works" v-if='singleWork'>
       <div v-for="item in singleWork.acf.images" class="work">
-        <img v-if='item.image.sizes' :src='item.image.sizes["pwr-large"]'>
+        <!-- Content -->
+        <video v-if='item.video.url' :src='item.video.url' autoplay muted loop></video>
+        <img v-else-if='item.image.sizes' :src='item.image.sizes["pwr-large"]'>
         <!-- Caption -->
         <div class="text" v-if="main.showMore">
           <span v-html="item.caption"></span>
@@ -37,7 +39,7 @@ export default {
       // Get the post that has a slug that is equal to the one in the router
       let work = this.main.posts.find(e => e.slug === this.$route.params.slug)
       // Remove first image
-      work.acf.images.shift()
+      // work.acf.images.shift()
       return work
     }
   }

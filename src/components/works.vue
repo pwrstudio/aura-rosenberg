@@ -4,8 +4,9 @@
     <div class="works">
       <template v-for="item in main.posts">
         <div v-for="image in item.acf.images.filter((e) => e.show_on_frontpage)" class="work">
-          <!-- Else-If there are multiple images => output all that are marked -->
-          <img v-if='image.image.sizes' :src='image.image.sizes["pwr-large"]'>
+          <!-- Content -->
+          <video v-if='image.video.url' :src='image.video.url' autoplay muted loop></video>
+          <img v-else-if='image.image.sizes' :src='image.image.sizes["pwr-large"]'>
           <!-- Caption -->
           <div class="text" v-if="main.showMore">
             <span v-if='image.caption.length > 1' v-html="image.caption"></span>

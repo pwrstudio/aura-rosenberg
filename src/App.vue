@@ -83,7 +83,7 @@ i {
     position: relative;
     height: 100%;
     width: 100%;
-    img {
+    img, video {
       height: 100%;
       width: auto;
     }
@@ -99,6 +99,11 @@ i {
       width: 100%;
       white-space: nowrap;
       text-overflow: ellipsis;
+
+      p {
+        display: inline;
+      }
+
       @include screen-size('small') {
         font-size: $font-size-mob-s;
         line-height: $line-height-mob-s;
