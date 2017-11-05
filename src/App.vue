@@ -33,6 +33,7 @@ export default {
 @import './style/helpers/_reset.css';
 @import './assets/fonts/serif-regular.css';
 @import './assets/fonts/serif-bold.css';
+@import './assets/fonts/serif-italic.css';
 @import './style/_variables.scss';
 
 html {
@@ -48,6 +49,11 @@ body {
 
 strong {
   font-weight: bold;
+}
+
+em,
+i {
+  font-style: italic;
 }
 
 #app {
