@@ -46,6 +46,10 @@ body {
   position: fixed;
 }
 
+strong {
+  font-weight: bold;
+}
+
 #app {
   font-family: $serif-stack;
   font-size: 15px;
