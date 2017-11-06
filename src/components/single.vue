@@ -1,7 +1,7 @@
 <template>
   <div id='main' class="hide-scroll main">
     <div class="works" v-if='singleWork'>
-      <div v-for="item in singleWork.acf.images" class="work">
+      <div v-for="item in singleWork.acf.images.filter((e) => !e.show_on_frontpage)" class="work">
         <!-- Content -->
         <video v-if='item.video.url' :src='item.video.url' autoplay muted loop></video>
         <img v-else-if='item.image.sizes' :src='item.image.sizes["pwr-large"]'>
