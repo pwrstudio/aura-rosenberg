@@ -51,7 +51,6 @@ html {
 
 body {
   background: $white;
-  overflow: hidden;
   height: 100%;
   position: fixed;
 }
