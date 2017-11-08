@@ -55,10 +55,6 @@ body {
   position: fixed;
 }
 
-strong {
-  font-weight: bold;
-}
-
 em,
 i {
   font-style: italic;
@@ -93,7 +89,8 @@ i {
     position: relative;
     height: 100%;
     width: 100%;
-    img, video {
+    img,
+    video {
       height: 100%;
       width: auto;
     }
