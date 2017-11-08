@@ -116,6 +116,9 @@ export default {
   @include screen-size('small') {
     width: 100vw;
     height: auto;
+    &:last-child {
+      margin-bottom: 200px;
+    }
   }
   .inner {
     padding-top: 40px;
