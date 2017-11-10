@@ -5,7 +5,7 @@
       <template v-for="item in main.posts">
         <div v-for="image in item.acf.images.filter((e) => e.show_on_frontpage)" class="work">
           <!-- Content -->
-          <video v-if='image.video.url' :src='image.video.url' autoplay muted loop></video>
+          <video v-if='image.video.url' @click='toggleVideo' :src='image.video.url' autoplay muted loop></video>
           <img v-else-if='image.image.sizes' :src='image.image.sizes["pwr-large"]'>
           <!-- Caption -->
           <div class="text" v-if="main.showMore">
@@ -41,7 +41,14 @@ export default {
     txt
   },
   methods: {
-    ...mapActions(['TOGGLE_TEXTBOX'])
+    ...mapActions(['TOGGLE_TEXTBOX']),
+    toggleVideo(e) {
+      if (e.srcElement.paused) {
+        e.srcElement.play()
+      } else {
+        e.srcElement.pause()
+      }
+    }
   },
   computed: {
     ...mapState(['main'])
