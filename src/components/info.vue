@@ -10,7 +10,7 @@
             <td v-html="item.text"></td>
           </tr>
         </table>
-        <p class="title">Group Exhibitions</p>
+        <p class="title">Selected Group Exhibitions</p>
         <table class="list">
           <tr v-for="item in main.info[0].acf.group_exhibitions">
             <td class="yr" v-html="item.year"></td>

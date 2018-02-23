@@ -5,8 +5,8 @@
       <template v-for="item in main.posts">
         <div v-for="image in item.acf.images.filter((e) => e.show_on_frontpage)" class="work">
           <!-- Content -->
-          <video v-if='image.video.url' @click='toggleVideo' :src='image.video.url' autoplay muted loop></video>
-          <img v-else-if='image.image.sizes' :src='image.image.sizes["pwr-large"]'>
+          <video v-if='image.video.url' @click='toggleVideo' :src='image.video.url' autoplay muted loop playsinline></video>
+          <img v-else-if='image.image.sizes' :src='image.image.sizes["pwr-large"]' :width='image.image.sizes["pwr-large-width"]' :height='image.image.sizes["pwr-large-height"]'>
           <!-- Caption -->
           <div class="text" v-if="main.showMore">
             <span v-if='image.caption.length > 1' v-html="image.caption"></span>

@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-bind:class="{'is-ios': isIos}">
     <headbar></headbar>
     <router-view></router-view>
   </div>
@@ -15,7 +15,12 @@ export default {
     headbar
   },
   computed: {
-    ...mapState(['main'])
+    ...mapState(['main']),
+    isIos: {
+      get: function() {
+        return (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/iPad/i))
+      }
+    }
   },
   methods: {
     ...mapActions(['GET_POSTS', 'GET_INFO'])
@@ -104,19 +109,30 @@ i {
       z-index: 3;
       color: $black;
       width: 100%;
-      white-space: nowrap;
+      // white-space: nowrap;
       text-overflow: ellipsis;
 
       p {
         display: inline;
       }
 
+      br {
+        display: none;
+      }
+
       @include screen-size('small') {
         font-size: $font-size-mob-s;
         line-height: $line-height-mob-s;
-        height: 100px;
+        //height: 100px;
+        height: 3.5 * $line-height-mob-s;
       }
     }
+  }
+}
+
+.is-ios .works .text {
+  @include screen-size('small') {
+    height: 3.5 * $line-height-mob-s + 60px; // + 44px
   }
 }
 

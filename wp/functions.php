@@ -210,7 +210,7 @@ add_filter('acf/fields/wysiwyg/toolbars', 'my_toolbars');
 function my_toolbars($toolbars)
 {
     $toolbars['Full' ] = array();
-    $toolbars['Full' ][1] = array('italic', 'bullist', 'link', 'unlink');
+    $toolbars['Full' ][1] = array('bold', 'italic', 'link', 'unlink');
 
     // remove the 'Basic' toolbar completely
     unset($toolbars['Basic' ]);
@@ -276,3 +276,63 @@ function my_toolbars($toolbars)
 // add_filter('acf/settings/google_api_key', function ($value) {
 //     return 'AIzaSyA5-e0tQI0E6nqkbdKr19d9jUx7vlDj4Vg';
 // });
+
+
+
+
+add_action('admin_init', 'posts_order');
+function posts_order()
+{
+  add_post_type_support('post', 'page-attributes');
+}
+function my_rest_post_query($args, $request)
+{
+    $args['orderby'] = 'menu_order';
+    $args['order']   = 'asc';
+
+    return $args;
+}
+add_filter('rest_post_query', 'my_rest_post_query', 10, 2);
+
+
+
+// -------
+// -------
+// -------
+// Simplify (reduce amount of data) response by json api for posts
+add_filter( 'rest_prepare_post', 'my_custom_json_fields', 12, 3 );
+function my_custom_json_fields( $data, $post, $context ) {
+
+    $acf = array("images" => array());
+
+    foreach ($data->data['acf']['images'] as $image) {
+        $imageData = $image['image'];
+
+        $imageClean = array(
+            "title"             => $imageData['title'],
+            "sizes"             => array()
+        );
+
+        if (array_key_exists('pwr-large', $imageData['sizes'])) {
+            $imageClean['sizes'] = array(
+                'pwr-large'        => $imageData['sizes']['pwr-large'],
+                'pwr-large-width'  => $imageData['sizes']['pwr-large-width'],
+                'pwr-large-height' => $imageData['sizes']['pwr-large-height'],
+            );
+        }
+
+        array_push($acf['images'], array(
+            "image"             => $imageClean,
+            "text"              => $image['text'],
+            "caption"           => $image['caption'],
+            "download"          => $image['download'],
+            "show_on_frontpage" => $image['show_on_frontpage'],
+            "video"             => $image['video'],
+        ));
+    }
+
+    return [
+        'slug' => $data->data['slug'],
+        'acf'  => $acf
+    ];
+}
