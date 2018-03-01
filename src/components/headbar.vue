@@ -163,12 +163,21 @@ export default {
   top: 11px;
   display: none !important;
   color: $green;
+
+  font-size: $font-size-mob-s;
+  line-height: $line-height-mob-s;
+
   &:hover {
     color: $black;
   }
   cursor: pointer;
   @include screen-size('medium') {
     display: block !important;
+  }
+
+  @include screen-size('small') {
+    font-size: 16px;
+    line-height: 16px;
   }
 }
 

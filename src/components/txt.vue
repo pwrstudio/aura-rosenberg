@@ -29,9 +29,9 @@ export default {
       }
     },
     setInnerHeight() {
-      if (!window.matchMedia('(max-device-width: 700px)').matches) {
-        document.getElementById('inner').style.height = document.getElementById('textbox').offsetHeight + 'px'
-      }
+      // if (!window.matchMedia('(max-device-width: 700px)').matches) {
+      //   document.getElementById('inner').style.height = document.getElementById('textbox').offsetHeight + 'px'
+      // }
     }
   },
   mounted() {
@@ -72,36 +72,45 @@ export default {
   align-items: center;
 
   #textbox {
+    color: #fff;
     width: 450px;
-    max-height: 70vh;
+    // max-height: 70vh;
     height: auto;
     position: relative;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 8px;
     padding-top: 20px;
-    background: rgba(255, 255, 255, 0.96);
+    // background: rgba(255, 255, 255, 0.96);
     z-index: 20000;
-    overflow: hidden;
+    // overflow: hidden;
     font-size: 14px;
     line-height: 18px;
     border-bottom: 4px solid transparent;
-    border-top: 4px solid transparent;
+    // border-top: 4px solid transparent;
+    border-top: 1px solid #fff;
     display: flex;
+
+    @include screen-size('small') {
+      background: rgba(255, 255, 255, 0.96);
+      color: $black;
+      transform: none !important;
+    }
+
     article {
       cursor: auto;
       line-height: 18px;
       height: 100%;
-      overflow: hidden;
+      // overflow: hidden;
       font-size: 16px;
       .inner {
         @include hide-scroll;
         width: calc(100% + 16px);
         padding-right: 16px;
         display: block;
-        padding-bottom: 40px;
+        // padding-bottom: 40px;
         overflow-y: auto;
-        overflow-x: hidden;
+        // overflow-x: hidden;
         height: 100%;
         p {
           display: block;
