@@ -15,6 +15,7 @@
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "interactjs": "^1.2.9",
+    "mobile-detect": "^1.4.1",
     "raven-js": "^3.19.1",
     "vue": "^2.5.3",
     "vue-head": "^2.0.10",

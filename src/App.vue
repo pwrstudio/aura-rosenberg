@@ -1,5 +1,5 @@
 <template>
-  <div id="app" v-bind:class="{'is-ios': isIos}">
+  <div id="app" v-bind:class="{'is-mobile': isMobile}">
     <headbar></headbar>
     <router-view></router-view>
   </div>
@@ -8,6 +8,7 @@
 <script>
 import {mapState, mapActions} from 'vuex'
 import headbar from './components/headbar'
+import MobileDetect from 'mobile-detect'
 
 export default {
   name: 'app',
@@ -16,9 +17,10 @@ export default {
   },
   computed: {
     ...mapState(['main']),
-    isIos: {
+    isMobile: {
       get: function() {
-        return (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/iPad/i))
+        let md = new MobileDetect(navigator.userAgent)
+        return md.tablet() || md.mobile()
       }
     }
   },
@@ -47,6 +49,7 @@ export default {
 
 html {
   height: 100%;
+  // style="height: 100vh"
   overflow: hidden;
 }
 
@@ -109,7 +112,6 @@ i {
       z-index: 3;
       color: $black;
       width: 100%;
-      // white-space: nowrap;
       text-overflow: ellipsis;
 
       p {
@@ -130,9 +132,29 @@ i {
   }
 }
 
-.is-ios .works .text {
-  @include screen-size('small') {
-    height: 3.5 * $line-height-mob-s + 60px; // + 44px
+.is-mobile {
+  .works {
+    display: block;
+    font-size: 0;
+    height: 100%;
+    left: 0;
+    line-height: 0;
+    overflow: auto;
+    position: absolute;
+    white-space: nowrap;
+
+    .work {
+      display: inline-block;
+      height: 100%;
+      overflow: hidden;
+      width: auto;
+
+      .text {
+        font-size: $font-size-mob-s;
+        line-height: $line-height-mob-s;
+        height: 3em !important;
+      }
+    }
   }
 }
 
