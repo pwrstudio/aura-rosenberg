@@ -1,5 +1,5 @@
 <template>
-  <div id="app" v-bind:class="{'is-mobile': isMobile}">
+  <div id="app" v-bind:class="{'is-mobile': isMobile, 'has-textbox': main.textbox}">
     <headbar></headbar>
     <router-view></router-view>
   </div>
@@ -154,6 +154,10 @@ i {
         line-height: $line-height-mob-s;
         height: 3em !important;
       }
+    }
+
+    #overlay * {
+      white-space: normal;
     }
   }
 }

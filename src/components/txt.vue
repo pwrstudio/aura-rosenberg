@@ -112,6 +112,10 @@ export default {
         overflow-y: auto;
         // overflow-x: hidden;
         height: 100%;
+
+        font-size: 17px;
+        line-height: 21px;
+
         p {
           display: block;
         }

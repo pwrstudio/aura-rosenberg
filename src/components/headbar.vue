@@ -141,6 +141,11 @@ export default {
   }
 }
 
+.is-mobile.has-textbox .headbar.more .asterisk
+.is-mobile.has-textbox .headbar.more .logo {
+  display: none;
+}
+
 .large-menu {
   display: block;
   @include screen-size('medium') {
@@ -176,8 +181,11 @@ export default {
   }
 
   @include screen-size('small') {
-    font-size: 16px;
-    line-height: 16px;
+    // font-size: 16px;
+    // line-height: 16px;
+
+    font-size: 17px;
+    line-height: 20px;
   }
 }
 
