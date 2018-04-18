@@ -153,6 +153,10 @@ i {
         font-size: $font-size-mob-s;
         line-height: $line-height-mob-s;
         height: 3em !important;
+
+        * {
+          white-space: normal;
+        }
       }
     }
 
