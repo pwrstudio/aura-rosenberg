@@ -3,7 +3,7 @@
     <div class="works" v-if='singleWork'>
       <div v-for="item in singleWork.acf.images.filter((e) => !e.show_on_frontpage)" class="work">
         <!-- Content -->
-        <video v-if='item.video.url' @click='toggleVideo' :src='item.video.url' autoplay muted loop></video>
+        <video v-if='item.video.url' @click='toggleVideo' :src='item.video.url' autoplay muted loop playsinline></video>
         <img v-else-if='item.image.sizes' :src='item.image.sizes["pwr-large"]'>
         <!-- Caption -->
         <div class="text" v-if="main.showMore">
